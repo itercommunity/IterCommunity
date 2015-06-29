@@ -1,0 +1,5 @@
+= 1.0.1 10/09/2014 =
+* BUG: Ensure Chosen is applied to the category select drop down.
+
+= 1.0 09/30/2014 =
+* Initial Release

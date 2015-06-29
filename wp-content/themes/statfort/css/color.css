@@ -1,0 +1,26 @@
+.colr,#respond form p input[type="text"]:focus ~ .fa,div.woocommerce a:hover,.colrhvr:hover,nav.navigation > ul > li:hover > a,.post-options li a:hover,.pagination > ul > .active > a,.pagination > ul > .active > a ,.services article:hover figure em ,.services article:hover h5,.widget_links ul li:hover a:before,.widget_links ul li:hover a /**/, .pagination ul li a:hover{
+	color: #409f74 !important;
+}
+
+.bgcolr,.bgcolrhvr:hover,.pagination > ul > .active > a:before,.widget_archive ul li:hover,.prevnext-post a:hover:before,.eventlisting article:hover figure,.address-info li:hover em.fa,.navigation ul ul a:hover,.wrapper:before,.wrapper:after /**/, #respond form p button, .btnshare:hover,  .sortby li a:hover, .pagination ul li a:before, .address-info li:hover i,.tabs.horizontal .nav-tabs .active a:before,
+.protected-icon,.password_protected form input[type="submit"],.gallerysec ul li figure figcaption i,#undercontruction .countdownit span.countdown_section,.dropcap:first-letter, .dropcap p:first-letter, .dropcaptwo:first-letter,#wp-calendar caption,#respond form p input[type="submit"],
+#filter-list ul li a:hover,.onsale,.add_to_cart_button.button:hover,.woocommerce-pagination ul li span,.woocommerce-pagination ul li a:hover,.woocommerce-message:before,.woocommerce-error:before,.woocommerce-info:before,div.woocommerce .button:hover,.wpcf7 form p input[type="submit"],.widget_gallery ul li a:after,
+.widget_pages ul li a:hover,.widget_archive ul li:hover,.widget_recent_entries ul li:hover,.widget_recent_entries ul li:hover,.widget_recent_comments ul li:hover,.widget_links ul li:hover,.widget_meta ul li:hover,.widget_archive ul li:hover a,.widget_recent_entries ul li:hover a,.widget_recent_entries ul li:hover a,.widget_recent_comments ul li:hover a,.widget_links ul li:hover a,.widget_meta ul li:hover a,.widget_nav_menu ul li a:hover,#footer-widgets .widget_pages ul li a:hover,.widget_tag_cloud .tagcloud a:hover,.widget_categories ul li:hover,.event.eventlisting article .text .event-texttop ul li a:hover{
+	background-color: #409f74 !important;
+}
+
+.bdrcolr,.address-info li:hover em.fa ,.services article:hover figure em, /**/ #respond form p input:focus, #respond form p textarea:focus,
+.woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit,
+.woocommerce #content input.button,.woocommerce-page a.button,.woocommerce-page button.button,.woocommerce-page input.button,.woocommerce-page #respond input#submit,.woocommerce-page #content input.button,.woocommerce-info,.woocommerce-message, .woocommerce-error{
+	border-color: #409f74 !important;
+}
+
+.blockquote blockquote:before {
+	border-color: transparent #409f74 !important;
+}
+.contactus #respond .right-col p.form-submit button:hover:before{
+	border-color: transparent transparent  #409f74 transparent  !important;
+}
+.widget_countdown figure figcaption .cs-post-title a,.widget-latest-news article h5 a:hover  {
+	box-shadow: -10px 0 0 0 #409f74,10px 0 0 0 #409f74;
+}

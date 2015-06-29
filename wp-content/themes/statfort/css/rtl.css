@@ -1,0 +1,253 @@
+@charset "utf-8";
+/* Rtl Css */
+body{
+	direction: rtl;
+}
+.col-md-1,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-md-10,
+.col-md-11,
+.courselisting.courses article .text .post-options ul li,
+.blog.blog-large article .calendar-date,
+.widget-recent-blog article figure img,
+.courselisting.courses article figure,
+.widget-recent-blog article figure a,
+#respond form p input[type="submit"],
+.wpcf7 form p input[type="submit"],
+.event.eventlisting article figure,
+.widget-recent-blog article figure,
+#mainheader .float-left,
+#searchbox input,
+.float-left,
+.widget .cs-section-title,
+ul.post-categories li,
+.post-options li,
+header.cs-heading-title h2,
+.blog-medium article figure,
+.blog-medium article figure,
+.widget.widget_categories ul li a,
+.our_courses article h5,
+#comments .thumblist figure,
+#comments .text header h5,
+#comments .text header time,
+#respond form p button,
+.post-tags ul li,
+.post-tags ul li i,
+#footer-widgets .widget,
+.about-author figure,
+nav.navigation > ul > li,
+.announcement-ticker h5,
+.subtitle h1,
+.children,
+article figure{
+	float: right !important;
+}
+
+#mainheader .flaot-right,
+#mainheader #searchform,
+.float-right,
+.sortby,
+.course-program,
+.share-post,
+.panel-heading a.accordion-toggle.active:after,
+.panel-heading a.accordion-toggle:after{
+	float: left !important;
+}
+#mainheader #searchbox{
+	left:0;
+	right:auto;
+}
+.event.eventlisting article figure ~ .text{
+    margin: 0px 250px 0px 0px;
+	overflow:hidden;
+}
+ul.post-categories li {
+    margin: 0 0 0 3px;
+}
+.event-texttop {
+	border-right: 3px solid #D5D5D5;
+	border-left: none;
+	padding-right: 12px;
+	padding-left: 0px;
+}
+.event.eventlisting article .text .post-options {
+    padding: 0 0 0 140px;
+}
+.event.eventlisting article .text .btn, 
+.courselisting.courses article .text .btn,
+a#btngotop {
+    left: 0;
+    right:auto;
+}
+.widget_categories ul li:before{
+	right:0;
+}
+.event article figure figcaption a em, .courses article figure figcaption em{
+	-webkit-transform: scale(-1);
+		-moz-transform: scale(-1);
+		 -ms-transform: scale(-1);
+		  -o-transform: scale(-1);
+			 transform: scale(-1);
+}
+.post-options li i, .post-options li em {
+    margin-right: 0px;
+    margin-left: 6px;
+}
+.event.eventlisting article .text .post-options ul li{
+	padding-right:0;
+}
+.post-options li:first-child {
+    margin-right: 0;
+	margin-left:19px;
+}
+.center{
+	left:0;
+	right: auto;
+}
+.blog.blog-large article .text {
+    padding: 0 75px 0 0;
+}
+.cs-read-more {
+    display: inline-block;
+}
+.blog-medium article figure ~ .blog_text .text{
+	margin-right:230px;
+}
+.blog-medium article figure ~ .blog_text .text {
+    margin-left: 0;margin-right: 230px;
+    text-align: right;
+}
+.blog-medium article.no-image .text {
+    margin: 0px;
+}
+.widget.widget_categories ul li{
+	text-align:left;
+}
+.courselisting.courses article figure ~ .text {
+    margin: 0 250px 0 0;
+}
+.courselisting.courses article .text .post-options {
+    padding: 15px 0 0 94px;
+}
+.courselisting.courses article .text .post-options ul li {
+    margin: 0 0 6px 15px;
+}
+.widget-recent-blog article .text{
+	padding-right:69px;
+	padding-left:0px;
+}
+.password_protected form input[type="submit"]{
+	left: 5px;
+	right: auto;
+}
+.password_protected form label:before{
+	right: 1px;
+	left: auto;
+	border-radius: 0px 4px 4px 0px;
+}
+.widget-recent-blog article figure{
+	margin:4px 0 0 15px;
+}
+#respond form p input[type="submit"], .wpcf7 form p input[type="submit"], #respond form p button {
+    margin: 0 0 0 13px;
+}
+#respond form p label span {
+	margin: 0px 6px 0px 0px;
+}
+.widget-latest-event .text{
+	border-right: 3px solid #D5D5D5;
+	border-left: none;
+	padding: 0 15px 0 0;
+	border-left:none;
+}
+#comments .text{
+	margin: 0px 80px 0px 0px;
+}
+#comments .text header h5 {
+    margin: 0 0 0 10px;
+}
+#comments .text header time{
+	padding: 0px 0px 0px 10px;
+}
+.searcharea a{
+	padding:0 10px 0 0;
+	border-left:none;
+	margin:0 8px 0 0;
+	border-right:1px dotted #e6e6e6;
+}
+.post-tags ul li i{
+	margin:6px 0 0 10px;
+}
+.share-post i{
+	margin:0 0 0 10px;
+}
+#footer-widgets .textwidget,
+.woocommerce ul.products li.product .text{
+	text-align:right;
+}
+.about-author .text{
+	margin:0 86px 0 0;
+}
+.ticker-wrapp .ticker-controls{
+	right:auto;
+	left:20px;
+}
+.ticker-wrapp{
+	margin:0 140px 0 0;
+}
+.announcement-ticker h5{
+	padding:0 0 0 20px;
+}
+.announcement-ticker h5:before{
+	width:30px;
+	left:auto;
+	right:-30px;
+}
+.announcement-ticker h5:after{
+	right:auto;
+	left:-5px;
+	-webkit-transform:scale(-1);
+	-mo-transform:scale(-1);
+	-o-transform:scale(-1);
+	transform:scale(-1);
+}
+.subtitle h1{
+	margin:0 0 0 12px;
+}
+.children:after{
+	left:auto;
+	right:48px;
+}
+.children{
+	padding:0 48px 0 0;
+	margin:0;
+}
+.event.event-detail .text{
+	margin:0 250px 0 0;
+}
+.detail_inner .text .post-options{
+	padding:0 0 0 140px;
+}
+.detail_inner .text .btn{
+	right:auto;
+	left:0;
+}
+blockquote {    
+	padding: 30px 95px 30px 35px;
+}
+blockquote:before{
+left: auto;
+right: 35px;
+-webkit-transform: scale(-1);
+    -moz-transform: scale(-1);
+     -ms-transform: scale(-1);
+      -o-transform: scale(-1);
+         transform: scale(-1);
+}

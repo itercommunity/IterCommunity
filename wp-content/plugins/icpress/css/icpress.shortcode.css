@@ -1,0 +1,122 @@
+
+
+    /* START OF BASIC SHORTCODE CSS */
+    
+    div.icp-ICPress {
+        margin: 0 0 1em;
+    }
+    
+    /* Thanks to http://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ */
+    div.icp-ICPress a {
+        -ms-word-break: break-all;
+        word-break: break-all;
+        word-break: break-word;
+        -webkit-hyphens: auto;
+       -moz-hyphens: auto;
+        hyphens: auto;
+    }
+    
+    div.icp-ICPress div.icp-Entry.icp-HasImage {
+        clear: both;
+        min-height: 150px;
+    }
+    div.icp-ICPress div.icp-Entry-Image {
+        float: left;
+    }
+    
+    div.icp-ICPress div.icp-Entry .csl-left-margin {
+        width: auto !important;
+    }
+
+    div.icp-ICPress div.icp-Entry.icp-HasImage div.csl-bib-body {
+        margin-left: 170px;
+    }
+    
+    div.icp-ICPress span.icp-Loading {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        background: #f3f3f3 url('images/loading_list.gif') no-repeat top left;
+        display: block;
+        margin: auto;
+        overflow: hidden;
+        width: 33px;
+        height: 32px;
+    }
+    div.icp-ICPress span.icp-Loading span {
+        visibility: hidden;
+    }
+    div.icp-ICPress p.icp-NoCitations {
+        margin: 0;
+    }
+	
+	
+	/* In-Text Citations */
+	
+	.icp-ICPressShortcode.cite .summary,
+	.icp-ICPressShortcode.bib .summary {
+		display: none;
+	}
+	
+	
+	
+	/* START OF BROWSE LIB */
+	
+	#icp-Browse-Bar {
+		background-color: #fff;
+		border: 2px solid #000;
+	}
+	#icp-Browse-Bar:before,
+	#icp-Browse-Bar:after {
+		content: "";
+		display: table;
+	}
+	#icp-Browse-Bar:after {
+		clear: both;
+	}
+	
+	#icp-Browse-Collections,
+	#icp-Browse-Tags {
+		float: left;
+		width: 50%;
+	}
+	
+	.icp-Browse-Select {
+		overflow: hidden;
+		width: 100%;
+		height: 34px;
+	}
+	.icp-Browse-Select select {
+		background: transparent;
+		border: none;
+		color: #000;
+		cursor: pointer;
+		font-size: 1em;
+		margin: 0;
+		padding: 0 0.5em;
+		width: 100%;
+		height: 34px;
+	}
+	#icp-Browse-Collections-Select {
+		border-right: 2px solid #000;
+	}
+	
+	#icp-Pagination,
+	.icp-Collection-Title {
+		letter-spacing: 0.15em;
+		font-size: 0.9em;
+		font-weight: bold;
+		margin: 3em 0 2em;
+		text-transform: uppercase;
+	}
+	#icp-Pagination {
+		margin: 2em 0 0;
+	}
+	
+	.icp-Entry-Image {
+		float: right;
+		margin: 0 0 1em 1em;
+	}
+	
+	/* END OF BROWSE LIB */
+	

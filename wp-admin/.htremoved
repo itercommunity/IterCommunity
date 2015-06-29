@@ -1,0 +1,5 @@
+AuthName "WordPress Restricted Area" 
+AuthType Basic 
+AuthUserFile /var/www/itercom.org/wp-admin/.htpasswd 
+AuthGroupFile /dev/null 
+require valid-user

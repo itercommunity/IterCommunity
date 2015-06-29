@@ -1,0 +1,12 @@
+
+
+    /* Spans that are automatically wrapped around shortcodes in the editor */
+    .icp-ICPressShortcode {
+        background-color: #eee;
+    }
+    .icp-ICPressShortcode:hover {
+        background-color: #ccc;
+    }
+    .icp-ICPressShortcode .shortcode {
+        display: none;
+    }

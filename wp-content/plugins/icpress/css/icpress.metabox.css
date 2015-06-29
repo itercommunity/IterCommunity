@@ -1,0 +1,555 @@
+
+    
+    /* START OF AUTOCOMPLETE CSS */
+    
+    .ui-autocomplete.icp-autocomplete {
+        background: none;
+        background-color: #fff;
+        border: 1px solid #ddd;
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+		-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+        margin: 0;
+        padding: 0;
+        max-height: 200px;
+        width: 253px !important;
+        overflow-y: auto;
+        overflow-x: hidden; /* prevent horizontal scrollbar */
+    }
+    .ui-autocomplete.icp-autocomplete-wide {
+        width: 775px !important;
+    }
+    
+    .ui-autocomplete.icp-autocomplete li {
+        background: none;
+        border: none;
+		font-weight: 400;
+        font-size: 0.75rem;
+		line-height: 1.2;
+        margin: 0;
+        padding: 0;
+        white-space: normal;
+        /*width: 253px;*/
+    }
+    .ui-autocomplete.icp-autocomplete-wide li {
+        /*width: 775px;*/
+    }
+	
+	.ui-autocomplete.icp-autocomplete-wide li strong {
+		font-weight: 600;
+	}
+    
+    .ui-autocomplete.icp-autocomplete li a {
+        background: none;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        color: #666;
+        margin: 0;
+        padding: 6px 10px 6px 10px;
+    }
+    .ui-autocomplete.icp-autocomplete li a.ui-state-focus,
+    .ui-autocomplete.icp-autocomplete li a.ui-state-hover {
+        background: none;
+        background-color: #eee; /* 8ec5fb */
+        margin: 0;
+        
+        border-radius: 0;
+        -moz-border-radius: 0;
+        -webkit-border-radius: 0;
+    }
+    
+    .ui-tabs .ui-tabs-nav li a,
+    .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a {
+        outline: none;
+    }
+    
+	/* NEW */
+	
+	li.source_MARC {
+		background-color: #eee;
+	}	  
+
+	li.source_MARC:after {
+		color: #888;	
+		content: " (MARC)";
+	}	  
+
+	li.source_Zotero {
+		background-color: #fdd;
+	}   
+
+	li.source_Zotero:after {
+		color: #888;	
+		content: " (Zotero)";
+	}    
+	
+    
+    /* END OF AUTOCOMPLETE CSS */
+    
+    
+    
+    /* START OF IN-TEXT CSS */
+    
+    div#icp-ICPressMetaBox-Biblio-Citations,
+    div#icp-ICPressMetaBox-Citations {
+        border: 5px solid #E14D43;
+        margin: 0.5em;
+        
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+    }
+    div#icp-ICPressMetaBox-Citations {
+        border: 5px solid #0080c0;
+    }
+    
+    input#icp-ICPressMetaBox-Biblio-Citations-Search,
+    input#icp-ICPressMetaBox-Citations-Search {
+        border: none;
+        background: #fff;
+		font-size: 1em;
+        margin: 0;
+        width: 100%;
+    }
+    input#icp-ICPressMetaBox-Biblio-Citations-Search.ui-autocomplete-loading,
+    input#icp-ICPressMetaBox-Citations-Search.ui-autocomplete-loading {
+        background: #fff url("../images/loading_default.gif") no-repeat 225px center;
+    }
+    input#icp-ICPressMetaBox-Biblio-Citations-Search.help,
+    input#icp-ICPressMetaBox-Citations-Search.help {
+        color: #aaa;
+    }
+    
+    div#icp-ICPressMetaBox-Biblio-Shortcode,
+    div#icp-ICPressMetaBox-InTextCreator-Shortcode {
+        padding: 0.75em;
+    }
+    div#icp-ICPressMetaBox-Biblio-Shortcode-Inner,
+    div#icp-ICPressMetaBox-InTextCreator-Shortcode-Inner {
+        background-color: #f6f6f6;
+        display: none;
+        margin: 0.75em 0 0 0;
+        padding: 0.75em;
+    }
+    
+    #ICPressMetaBox .ui-widget-content a#icp-ICPressMetaBox-Biblio-Generate-Button,
+    #ICPressMetaBox .ui-widget-content a#icp-ICPressMetaBox-InTextCreator-Generate-Button {
+        color: #fff;
+        float: right;
+        line-height: 1.75em;
+        height: auto;
+    }
+    #ICPressMetaBox .ui-widget-content a#icp-ICPressMetaBox-Biblio-Clear-Button,
+    #ICPressMetaBox .ui-widget-content a#icp-ICPressMetaBox-InTextCreator-Clear-Button {
+        float: left;
+        line-height: 1.75em;
+        height: auto;
+    }
+    
+    div#icp-ICPressMetaBox-Biblio-Shortcode hr.clear,
+    div#icp-ICPressMetaBox-InTextCreator-Shortcode hr.clear {
+        border: none;
+        clear: both;
+        margin: 0;
+        padding: 0;
+        visibility: hidden;
+        height: 1px;
+    }
+    
+    div#ICPressMetaBox div#icp-ICPressMetaBox-Biblio-Shortcode label,
+    div#ICPressMetaBox div#icp-ICPressMetaBox-InTextCreator-Shortcode label
+    {
+        font-size: 0.85em;
+        display: block;
+		line-height: 1em;
+		margin-bottom: 0.5em;
+		padding: 0;
+    }
+    
+    #icp-ICPressMetaBox-Biblio-Shortcode-Text,
+    #icp-ICPressMetaBox-InTextCreator-Text-Bib,
+    #icp-ICPressMetaBox-InTextCreator-InText {
+        font-size: 0.85em;
+        width: 100%;
+    }
+    
+	div#icp-ICPressMetaBox-InTextCreator-Text-Bib-Container {
+		margin-top: 0.75em;
+	}
+    div#icp-ICPressMetaBox-Biblio-Text-Bib-Container label span,
+    div#icp-ICPressMetaBox-InTextCreator-Text-Bib-Container label span {
+        color: #999;
+        font-weight: normal;
+    }
+    
+    /* Start of Visual Indicator Item CSS */
+    
+    div#icp-ICPressMetaBox-Biblio-Citations-List,
+    div#icp-ICPressMetaBox-Citations-List {
+        padding: 0 1rem;
+    }
+    
+    div#icp-ICPressMetaBox-Biblio-Citations-List div.item,
+    div#icp-ICPressMetaBox-Citations-List div.item {
+        position: relative;
+        border-top: 1px solid #eee;
+		font-weight: 400;
+        font-size: 0.7rem;
+		line-height: 1.2;
+        padding: 0.5rem 0;
+		width: 100%;
+    }
+    div#icp-ICPressMetaBox-Biblio-Citations-List div.item:first-child,
+    div#icp-ICPressMetaBox-Citations-List div.item:first-child {
+		border-top: none;
+	}
+    
+    div#icp-ICPressMetaBox-Biblio-Citations-List div.item .label,
+    div#icp-ICPressMetaBox-Citations-List div.item .label {
+		display: block;
+        width: 90%;
+    }
+	
+    div#icp-ICPressMetaBox-Biblio-Citations-List div.item .options,
+    div#icp-ICPressMetaBox-Citations-List div.item .options {
+		margin: 0.5rem 0;
+		display: block;
+        width: 90%;
+    }
+	div#icp-ICPressMetaBox-Biblio-Citations-List div.item .options:before,
+	div#icp-ICPressMetaBox-Biblio-Citations-List div.item .options:after,
+    div#icp-ICPressMetaBox-Citations-List div.item .options:before,
+    div#icp-ICPressMetaBox-Citations-List div.item .options:after {
+		content: "";
+		display: table;
+	}
+	div#icp-ICPressMetaBox-Biblio-Citations-List div.item .options:after,
+    div#icp-ICPressMetaBox-Citations-List div.item .options:after {
+		clear: both;
+	}
+    div#icp-ICPressMetaBox-Biblio-Citations-List div.item .options label,
+    div#icp-ICPressMetaBox-Citations-List div.item .options label {
+		float: left;
+		line-height: 1.5;
+		margin-right: 0.2rem;
+	}
+    div#icp-ICPressMetaBox-Biblio-Citations-List div.item .options input,
+    div#icp-ICPressMetaBox-Citations-List div.item .options input {
+		text-transform: uppercase;
+		font-weight: 600;
+		float: left;
+		font-size: 0.7rem;
+		padding: 0 0.2rem;
+		width: 40%;
+	}
+	
+    div#icp-ICPressMetaBox-Biblio-Citations-List div.item .item_key,
+    div#icp-ICPressMetaBox-Citations-List div.item .item_key {
+        display: block;
+		font-weight: 600;
+		margin-top: 0.25rem;
+    }
+    
+    div#icp-ICPressMetaBox-Biblio-Citations-List div.item .delete,
+    div#icp-ICPressMetaBox-Citations-List div.item .delete {
+        position: absolute;
+        top: 0.5rem;
+        right: 0;
+        background-color: #e14d43;
+		color: #fff;
+        cursor: pointer;
+		font-size: 0.8rem;
+		line-height: 1;
+        padding: 0.05rem 0.25rem;
+        
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+    }
+    
+    div#icp-ICPressMetaBox-Biblio-Citations-List hr.clear,
+    div#icp-ICPressMetaBox-Citations-List hr.clear {
+        background: none;
+        border: none;
+        height: 1px;
+        margin: 0;
+        padding: 0;
+        visibility: hidden;
+    }
+    
+    
+    /* Start of Account CSS */
+    
+    div#icp-ICPressMetaBox-Biblio-Account,
+    div#icp-ICPressMetaBox-Account {
+		color: #999;
+        font-size: 0.85em;
+        margin: 0.5em 1em;
+    }
+
+    
+    /* Start of Options CSS */
+    
+    div#icp-ICPressMetaBox-Biblio-Options,
+    div#icp-ICPressMetaBox-InTextCreator-Options {
+        border-top: 1px solid #EEEEEE;
+        border-bottom: 1px solid #EEEEEE;
+        margin: 0;
+    }
+    
+    div#ICPressMetaBox div#icp-ICPressMetaBox-Biblio-Options h4,
+    div#ICPressMetaBox div#icp-ICPressMetaBox-InTextCreator-Options h4 {
+        margin: 0.75em;
+    }
+    
+    div#icp-ICPressMetaBox-Biblio-Options-Inner,
+    div#icp-ICPressMetaBox-InTextCreator-Options-Inner {
+		border-top: 1px solid #EEEEEE;
+        display: none;
+        padding: 0.25em 0;
+    }
+	div.icp-ICPressMetaBox-Field {
+		font-size: 0.85em;
+		padding: 0.5em 1em;
+	}
+	div.icp-ICPressMetaBox-Field-Radio {
+		font-size: 1.15em;
+		float: right;
+		margin-top: -0.2em;
+	}
+	div#ICPressMetaBox div.icp-ICPressMetaBox-Field-Radio label {
+		padding: 0;
+	}
+	div#icp-ICPressMetaBox-Biblio-Options-Inner input,
+	div#icp-ICPressMetaBox-Biblio-Options-Inner select,
+	div#icp-ICPressMetaBox-InTextCreator-Options-Inner input,
+	div#icp-ICPressMetaBox-InTextCreator-Options-Inner select {
+		font-size: 0.85em;
+		margin: 0.5em 1em 0.5em 0;
+		line-height: 1em;
+	}
+	div#icp-ICPressMetaBox-Biblio-Options-Inner select,
+	div#icp-ICPressMetaBox-InTextCreator-Options-Inner select {
+		height: auto;
+	}
+	
+	div#icp-ICPressMetaBox-Biblio-Options div.right,
+	div#icp-ICPressMetaBox-InTextCreator-Options div.right {
+		float: right;
+		line-height: 1;
+	}
+    
+    div#ICPressMetaBox div#icp-ICPressMetaBox-Biblio-Options h5,
+    div#ICPressMetaBox div#icp-ICPressMetaBox-InTextCreator-Options h5 {
+        background-color: #f9f9f9;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        font-size: 1em;
+        font-weight: normal;
+        margin: 0.5em 0;
+        padding: 0.5em 0.75em;
+    }
+    div#ICPressMetaBox div#icp-ICPressMetaBox-InTextCreator-Options h5.first {
+		margin-top: -0.3em;
+	}
+    
+    div#icp-ICPressMetaBox-Biblio-Options h4 span.toggle,
+    div#icp-ICPressMetaBox-InTextCreator-Options h4 span.toggle {
+        background: #f7f7f7 url('../images/sprite.png') no-repeat -22px -466px;
+        border: 1px solid #dadada;
+        cursor: pointer;
+		display: inline-block;
+		line-height: 1em;
+        margin-left: 0.35em;
+		padding: 0;
+        /*padding: 0 0.65em;*/
+        vertical-align: bottom;
+        width: 1.3em;
+		height: 1.3em;
+        
+        border-radius: 1em;
+        -moz-border-radius: 1em;
+        -webkit-border-radius: 1em;
+    }
+    div#icp-ICPressMetaBox-Biblio-Options h4 span.toggle.active,
+    div#icp-ICPressMetaBox-InTextCreator-Options h4 span.toggle.active {
+        background-color: #dadada;
+    }
+    
+    div#icp-ICPressMetaBox-Biblio-Options hr,
+    div#icp-ICPressMetaBox-InTextCreator-Options hr {
+        border: none;
+        background-color: #fff;
+        border-bottom: 1px solid #f6f6f6;
+        margin: 0.25em 0;
+        padding: 0;
+        height: 1px;
+    }
+    
+    input#icp-ICPressMetaBox-Biblio-Options-Format,
+    input#icp-ICPressMetaBox-InTextCreator-Options-Format {
+        min-width: 185px;
+    }
+    
+    div#icp-ICPressMetaBox-Biblio-Options p.note,
+    div#icp-ICPressMetaBox-InTextCreator-Options p.note {
+        color: #999;
+		font-size: 0.75em;
+        margin: 0 1em 0.75em;
+    }
+    
+    /* END OF IN-TEXT CSS */
+    
+    
+    
+    /* START OF GENERIC METABOX CSS */
+    
+    div#ICPressMetaBox.postbox div.inside {
+        /*padding: 0 6px;*/
+        margin: 0;
+        padding: 0;
+    }
+
+    div#ICPressMetaBox h3.hndle span {
+        background: transparent url('../images/icon.png') no-repeat left center;
+        padding-left: 22px;
+    }
+    
+    div.icp-ICPressMetaBox-Tabs {
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        border: 1px solid #ccc;
+        padding: 1px;
+        margin-bottom: 10px;
+    }
+    div.icp-ICPressMetaBox-Tabs ul.ui-tabs-nav {
+        display: none;
+        border-radius: 4px 4px 0 0;
+        -moz-border-radius: 4px 4px 0 0;
+        background-color: #f6f6f6;
+        padding: 3px;
+        padding-bottom: 0;
+        overflow: hidden;
+        /*height: 20px;*/
+    }
+    div.icp-ICPressMetaBox-Tabs ul li,
+    div.icp-ICPressMetaBox-Tabs ul.ui-tabs-nav li {
+        margin: 0;
+        padding: 5px 5px 0;
+        float: left;
+        height: 13px;
+    }
+    div.icp-ICPressMetaBox-Tabs ul.ui-tabs-nav li.ui-state-active {
+        border-radius: 4px 4px 0 0;
+        -moz-border-radius: 4px 4px 0 0;
+        background-color: #fff;
+        height: 13px;
+    }
+    div.icp-ICPressMetaBox-Tabs ul.ui-tabs-nav li a {
+        /*font: 9px/10px 'Arial', sans-serif;*/
+        letter-spacing: 1px;
+        padding: 0 3px;
+        text-decoration: none;
+        text-transform: uppercase;
+        vertical-align: top;
+    }
+    div.icp-ICPressMetaBox-Tabs ul.ui-tabs-nav li.ui-state-active a {
+        color: #333;
+    }
+    div.icp-ICPressMetaBox-Tabs input[type="radio"] {
+        vertical-align: text-top;
+    }
+    
+    div#ICPressMetaBox h4 {
+		margin: 0;
+        padding: 0;
+    }
+    
+    div#icp-ICPressMetaBox-Biblio-Options label,
+	div#icp-ICPressMetaBox-InTextCreator-Options label{
+        font-size: 0.85em;
+        margin: 0;
+		padding: 0 1em;
+        font-weight: bold;
+    }
+    div#ICPressMetaBox div.icp-Tab label {
+        font-size: 12px;
+        display: block;
+        margin: 0;
+        padding: 0 0 5px 0;
+    }
+    div#ICPressMetaBox div.icp-Tab select {
+        width: 100%;
+        height: 5em !important;
+    }
+    
+    div.icp-Tab {
+        background-color: #fff;
+        padding: 0.6em !important;
+    }
+    p.icp-Note {
+        font-size: 9px !important;
+        font-style: italic !important;
+        color: #aaaaaa !important;
+        margin-top: 0 !important;
+    }
+    p.icp-Note {
+        font-size: 10px !important;
+        color: #888 !important;
+    }
+    div.icp-Tab span.label {
+        margin-top: 5px;
+        font-weight: bold;
+    }
+    div.icp-Tab span.label em {
+        font-style: normal;
+        text-decoration: underline;
+    }
+
+    .postbox div.icp-Tab input[type="text"],
+    div.icp-Tab select {
+        margin-bottom: 10px;
+    }
+    
+    /* MAIN */
+    #normal-sortables .icp-ICPressMetaBox-Tabs .sm {
+        display: none;
+    }
+    #normal-sortables .icp-ICPressMetaBox-Tabs .wide {
+        display: block;
+    }
+    /* MAIN */
+    
+    /* SIDEBAR */
+    #side-sortables .icp-ICPressMetaBox-Tabs .sm {
+        display: block;
+    }
+    #side-sortables .icp-ICPressMetaBox-Tabs .wide {
+        display: none;
+    }
+    /* SIDEBAR */
+    
+    .bibOnly {
+        display: none;
+    }
+    
+    
+    
+    /* START OF CKEDIT STYLES */
+    
+    span.icp-ICPress-Citation {
+        background-color: #eee !important;
+    }
+    span.icp-ICPress-Citation:hover {
+        background-color: #ddd !important;
+    }
+    
+    span.icp-ICPress-Citation span.icp-ICPress-Citation-Shortcode {
+        display: none !important;
+    }
+    
+    span.icp-ICPress-Citation span.icp-ICPress-Citation-Info {
+        display: inline !important;
+    }
+    
+    /* END OF CKEDIT STYLES */
+    

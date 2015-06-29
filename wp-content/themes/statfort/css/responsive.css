@@ -1,0 +1,698 @@
+@media (min-width: 992px) and (max-width: 1199px) {
+	a#btngotop{
+	bottom:0;
+}
+.team-shortcode article.team-v3{
+	width: 21.8%;
+}
+.services article{
+	width:25%;
+}
+.navigation ul ul{
+	left:-72px;
+}
+#banner .flexslider{
+	width:100%;
+	height:100%;
+}
+#mainheader{
+	position:static !important;
+}
+.wrapper.wrapper_boxed{
+	overflow:hidden;
+}
+.widget_gallery ul li, .widget_gallery ul li a, .widget_gallery ul li a img {
+	width:44px;
+	height:auto;
+}
+#footer-widgets .widget_gallery ul li{
+	width:46.6px;
+	margin-top:0;
+	margin-bottom: 10px;
+}
+#footer-widgets .widget_gallery ul li a, #footer-widgets .widget_gallery ul li a img{
+	width:100%;
+}
+}
+@media (min-width: 768px) and (max-width: 991px) {
+	.wrapper.wrapper_boxed{
+		overflow:hidden;
+	}
+#rightheader{
+	float:right;
+    width:82%;
+}
+.woocommerce ul.products li.product figure{
+	height: 200px;
+}
+nav.navigation > ul > li{
+	padding:0 9px;
+}
+figure.image-shortcode{
+	width:auto !important;
+}
+.breadcrumb-inner{
+	padding-top: 8px;
+}
+#rightheader #searchform{
+	float:right;
+} 
+a#btngotop{
+	bottom:0;
+}
+.gallerysec ul li{
+	width: 24%;
+}
+#wp-calendar thead th{
+	padding:3px 9px;
+}
+.gallerysec .gallery-three-col li{
+	width:32.9%;
+}
+.subtitle h1{
+	width:100%;
+}
+.services article{
+	width:25%;
+}
+.team-shortcode article.team-v3{
+	width: 20.9%;
+}
+.tabs.horizontal .nav-tabs > li > a{
+	padding:11px 15px;
+}
+.rich_editor_text .shortgrid{
+	padding: 0 9px 15px 0;
+}
+.event.eventlisting article .text .event-texttop ul li a{
+	margin-bottom:3px;
+}
+.navigation ul ul{
+	left:-23px;
+}
+.col-md-9{
+	float: left;
+    width: 70%;
+}
+.col-md-3{
+	width:30%;
+	float:left;
+}
+#footer-widgets .widget{
+	width:23.5% !important;
+}
+.sortby{
+	float:left;
+}
+.event.eventlisting article .text .post-options{
+	padding-right:20px;
+}
+.blog-grid article{
+	width:46.9%;
+}
+.our_staff ul li{
+	width:31.3%;
+}
+.our_staff.our-carousel article{
+	width:234px;
+}
+.blog.blog-grid .latest-news article{
+	width:47%;
+}
+.event.event-detail .text{
+	width:100%;
+	margin:0;
+}
+.post-tags ul{
+	float:left;
+	margin-bottom:20px;
+}
+img.alignleft{
+	width:100%;
+	float:left;
+}
+#banner .flexslider{
+	width:100%;
+	height:100%;
+}
+#mainheader{
+	position:static !important;
+}
+#footer-widgets .widget_gallery ul li {
+    margin:8px 0 0 4px;
+    width:51px;
+}
+#footer-widgets .widget_gallery ul li a img,
+#footer-widgets .widget_gallery ul li a{
+	width:100%;
+}
+.widget_gallery ul li, .widget_gallery ul li a, .widget_gallery ul li a img{
+	width: 40px;
+}
+nav.navigation > ul{
+	display:none;
+}
+#rightheader .navigation {
+    float: left !important;
+    position: relative;
+    width: 88%;
+	border-radius: 4px;
+}
+#rightheader .navigation .selectnav {
+    background: none repeat scroll 0 0 #666666;
+    border-radius: 4px;
+    color: #FFFFFF;
+    padding: 9px;
+    position: relative;
+    z-index: 9999;
+	width:100%;
+	display: block;
+	margin-left: 15px;
+}
+.event.eventlisting article .text .btn{
+	position:inherit;
+}
+.courses.courses-gridview article{
+	width:47.6%;
+}
+.event-text {
+    float: left;
+    margin-bottom: 20px;
+    width: 100%;
+}
+}
+@media (max-width: 767px) {
+.container{
+	width:480px;
+}
+article .flexslider figcaption h2,
+article .flexslider figcaption p{
+	display:none;
+}
+.announcement-ticker h5:after ,.announcement-ticker h5:before {
+	display: none;
+}
+.announcement-ticker h5 {
+	padding: 0 20px;
+}
+.outer-newsticker{
+	height: auto ;
+}
+.blog-grid article, 
+.blog-grid article figure iframe, 
+.element_size_25.column, 
+.event.eventlisting article .text, 
+.event.eventlisting article figure, 
+.col-md-12 .element_size_75, #rightheader, 
+#rightheader .navigation .selectnav, #logo, 
+.ticker-wrapp, 
+.subtitle h1,  
+.team-shortcode article.team-v3, 
+.tabs.horizontal .nav-tabs li, 
+.woocommerce form .form-row-first, 
+.woocommerce form .form-row-last, 
+.woocommerce-page form .form-row-first, 
+.woocommerce-page form .form-row-last, 
+.product .images, .product .summary, 
+.woocommerce .col2-set .col-1, 
+.woocommerce-page .col2-set .col-1, 
+.woocommerce-page .col2-set .col-2, .tabs.vertical .nav-tabs, 
+.tabs.vertical .tab-content, .post-tags ul,
+.blog-grid {
+	width:100%;
+}
+.blog-grid{
+	margin-left:-3%;
+	width:103%;
+}
+#main{
+	overflow:hidden;
+}
+.searcharea a{
+	padding:0 9px 0 9px;
+	border-left:none;
+	border-right:1px dotted #e6e6e6;
+}
+.ticker-wrapp{
+	float:left;
+	margin-left:0;
+}
+.element_size_100.column .shortgrid, 
+#respond .comment-form-author, 
+#respond .comment-form-numbr, 
+#respond .comment-form-email, 
+#respond .comment-form-subject, .col-md-12 .rich_editor_text .shortgrid{
+	width:100% !important;
+}
+figure.image-shortcode{
+	width:auto !important;
+}
+
+.team-shortcode, 
+.team-shortcode article.team-v3{
+	margin:0;
+}
+.team-shortcode article.team-v3{
+	margin-bottom:20px;
+}
+.gallerysec .gallery-three-col li{
+	width: 32.6%;
+}
+#footer p.copright{
+	padding-right:18px;
+}	
+a#btngotop{
+	bottom:0;
+	right:8px;
+}
+#searchbox{
+	right: -12px;
+	top:50px;
+	width:290px;
+}
+#searchbox input{
+	width:232px;
+}
+#logo{
+	text-align:center;
+}
+.element_size_25.column .event-text .button-default{
+	margin-bottom:10px;
+}
+.blog-grid article{
+	margin-left:0;
+}
+.event.eventlisting article .text{
+	margin:0 ;
+}
+#rightheader{
+	float:left;
+}
+#rightheader .navigation {
+	float:left !important;
+	width:88%;
+	position: relative;
+}
+#rightheader #searchform{
+	float:right;
+	position: relative;
+    top: 3px;
+}
+#rightheader .navigation .selectnav{
+	background:#666;
+	color:#fff;
+	padding:9px;
+	border-radius:4px;
+	position: relative;
+	z-index: 9999;
+} 
+.event.eventlisting article figure{
+	margin-bottom:10px;
+}
+.gallerysec ul li{
+	width: 24%;
+}
+.gallerysec ul li figure figcaption i, 
+.gallerysec .gallery-three-col li figure figcaption i, 
+.gallerysec .gallery-two-col li figure figcaption i{
+	font-size:15px;
+	width:25px;
+	height:25px;
+	padding:5px 0 0;
+	margin:-15px 0 0 -13px;
+}
+.gallerysec .gallery-two-col li{
+	width:49.3%;
+}
+.breadcrumb .subtitle{
+	margin-top:10px;
+}
+.breadcrumb{
+	height:100px;
+}
+.breadcrumb-inner{
+	padding-top:8px;
+}
+.blog-medium article figure, .blog-medium article.cls-post-audio figure{
+	margin-bottom:10px;
+	width:100% !important;
+}
+.blog-medium article figure ~ .blog_text .text{
+	margin-left:0;
+	float:left;
+}
+.tabs.horizontal .nav-tabs .active a:after{
+	display:none;
+}
+.tabs.horizontal .nav-tabs > li > a {
+    border-top: 1px solid #D3D3D3;
+	border-right: none;
+}
+.col-md-9 ul.products li.product, 
+.col-md-9 ul.products li.product{
+	 width:48.6%;
+}
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product{
+	width:48%;
+}
+.shop_table.cart .actions .coupon .button, 
+.shop_table.cart .actions .coupon, 
+.shop_table.cart .actions .button{
+	width:100%;
+}
+.shop_table.cart .actions .button{
+	margin:10px 0 0 0;
+}
+.tabs.vertical .nav-tabs .active a:after{
+	display:none;
+}
+.tabs.vertical .tab-content{
+	border-left:1px solid #DEDEDE;
+	padding: 21px 30px;
+}
+.event.eventlisting article figure ~ .text,
+.courselisting.courses article figure ~ .text{
+	margin-left:0;
+}
+.sortby{
+	float:left;
+}
+.courselisting.courses article figure{
+	width:100%;
+	margin:0 0 20px 0;
+}
+.our_staff ul li{
+	width: 48%;
+}
+.courses.courses-gridview article{
+	width:47.6%;
+}
+#header{
+	height:200px;
+}
+.our_courses li, .our_courses li article{
+	width:100%;
+}
+.event.eventlisting article figure ~ .text,
+.event.eventlisting article .text .post-options ul li i{
+	margin-right:0;
+}
+.event.event-detail .text{
+	margin:0;
+	width:100%;
+}
+.post-options li{
+	margin:0 19px 0 0;
+}
+#banner .flexslider .container,
+#banner .flexslider .container:before{
+	display:none;
+}
+.blog.blog-grid .latest-news article{
+	width: 47%;
+}
+.col-md-12 .blog.blog-medium article figure, .col-md-9 .blog.blog-medium article figure{
+	height: 100% !important;
+}
+#footer-widgets .widget{
+	width: 48%;
+}
+#main{
+	padding-top:0;
+}
+.subtitle p{
+	display:none;
+}
+.breadcrumb{
+	margin-bottom:20px;
+}
+.services article{
+	width:50%;
+}
+img.alignleft{
+	width:100%;
+	float:left;
+}
+#banner{
+	margin-bottom:10px;
+}
+.searcharea a{
+	border-right:none;
+}
+#banner .flexslider{
+	width:100%;
+	height:100%;
+}
+.our_staff{
+	margin-bottom:20px;
+}
+#mainheader{
+	position:static !important;
+}
+.our_courses{
+	margin-left:-3%;
+}
+.followus {
+	margin-left:-10px;
+}
+.followus a{
+	margin-left:10px;
+	width:31%;
+}
+.widget_gallery ul li, .widget_gallery ul li a, .widget_gallery ul li a img{
+	width: 48px;
+	height:auto;
+}
+#footer-widgets .widget_gallery ul li, #footer-widgets .widget_gallery ul li a, 
+#footer-widgets .widget_gallery ul li a img{
+	width:46px;
+}
+.event.event-gridview article{
+	width: 47.6%;
+}
+.post-tags ul{
+	float:left;
+	margin-bottom:20px;
+}
+.share-post{
+	float:left;
+}
+figure.image-shortcode{
+	margin-right:0;
+}
+.shortgrid{
+	padding-right:0;
+}
+}
+@media (max-width: 480px) {
+.container{
+	width:320px;
+}
+.event.eventlisting article figure ~ .text,
+.courselisting.courses article figure ~ .text{
+	margin-left:0;
+}
+.courselisting.courses article figure{
+	width:100%;
+	margin:0 0 20px 0;
+}
+.courses.courses-gridview article,
+.our_staff ul li{
+	width:100%;
+}
+.shortgrid .button a.big-btn{
+	padding:14px 24px;
+}
+#header{
+	height:175px;
+}
+.our_courses li article{
+	width:100%;
+}
+.detail_inner .text .post-categories li a{
+	margin:0 0 5px 0;
+}
+.our_staff.our-carousel article{
+	width:290px;
+}
+.password_protected form, 
+.tabs.horizontal .nav-tabs li, 
+.col-md-12 .rich_editor_text .element_size_ iframe, 
+.col-md-9 ul.products li.product, 
+.col-md-9 ul.products li.product, 
+.woocommerce-tabs ul.tabs li a, 
+.woocommerce-tabs ul.tabs li, 
+.woocommerce .cart-collaterals .cart_totals, 
+.woocommerce-page .cart-collaterals .cart_totals,
+.blog.blog-grid .latest-news article,
+.blog-medium article.cls-post-audio figure, .blog-medium article.cls-post-video figure,
+.blog.blog-large article .text, #footer-widgets .widget, .our_courses article h5, .blog-grid{
+	width:100%;
+}
+.nav-tabs .active a:after, .woocommerce-tabs ul.tabs li.active a:after{
+	display:none;
+}
+.col-md-12 .rich_editor_text .element_size_ iframe{
+	height:250px;
+}
+.tabs.horizontal .nav-tabs > li > a{
+	 border-top: 1px solid #D3D3D3;
+	  border-right: none;
+}
+
+.woocommerce-tabs ul.tabs li a {
+    border-top: 1px solid #D3D3D3;
+	border-right: none;
+}
+
+.event.eventlisting article .text .post-options{
+	padding-right:0;
+}
+.event.eventlisting article .text .btn{
+	bottom:0;
+}
+.subtitle h1{
+	font-size:26px;
+}
+.breadcrumb-inner{
+	padding-top:10px;
+}
+.gallerysec ul li{
+	width: 23%;
+}
+.gallerysec .gallery-three-col li {
+    width: 32.3%;
+}
+.gallerysec .gallery-two-col li {
+    width: 48.9%;
+}
+.woocommerce table.shop_table th, .woocommerce-page table.shop_table th{
+	padding:0;
+}
+.woocommerce table.shop_table td, .woocommerce-page table.shop_table td{
+	padding:0;
+}
+.event.eventlisting article .text .event-texttop ul li a{
+	margin-bottom:2px;
+}
+.event.eventlisting article figure ~ .text,
+.event.eventlisting article .text .post-options ul li i{
+	margin-right:0;
+}
+.event.event-detail .text{
+	margin:0;
+	width:100%;
+}
+.addmition-info{
+	width:100%;
+	margin:8px 0 30px 0;
+}
+#banner .flexslider .container,
+#banner .flexslider .container:before{
+	display:none;
+}
+#banner .flexslider .flex-direction-nav{
+	bottom:130px;
+}
+#rightheader .navigation .selectnav{
+	padding:9px 9px 9px 40px;
+}
+blockquote:before{
+	left: 10px;
+	font-size: 18px;
+}
+blockquote{
+	padding: 30px 35px;
+}
+.subtitle p{
+	display:none;
+}
+.blog.blog-large article .calendar-date{
+	margin-bottom:20px;
+}
+.blog.blog-large article .text{
+	float:left;
+	padding: 0;
+}
+.children{
+	padding-left:20px;
+}
+#main{
+	padding-top:0;
+}
+.blog.blog-large article figure figcaption{
+	display:none;
+}
+.breadcrumb{
+	margin-bottom:20px;
+}
+.share-post{
+	float:left;
+}
+.post-tags ul{
+	float:left;
+	margin-bottom:20px;
+}
+.woocommerce ul.products li.product, 
+.woocommerce-page ul.products li.product{
+	width:100%;
+}
+.course-program{
+	float:left !important;
+}
+a.btnshowmore{
+	margin-bottom:15px;
+	padding:0 5px;
+}
+.blog-medium article .post-options{
+	margin-bottom:5px;
+}
+.searcharea a{
+	border-right:none;
+}
+.our_courses{
+	margin-bottom:20px;
+}
+#banner .flexslider{
+	width:100%;
+	height:100%;
+}
+.our_staff.our-carousel .cycle-slideshow{
+	min-height: 480px;
+}
+.our_staff{
+	margin-bottom:20px;
+}
+.blog.blog_detail .detail_text .shortgrid{
+	width:100% !important;
+	padding-right: 0;
+}
+.blog.blog-large article, .postlist.blog article{
+	margin-bottom:30px;
+}
+.blog-medium article figure {
+    margin-bottom: 20px;
+}
+.followus{
+	margin-left:-10px;
+}
+.followus a{
+	width:46%;
+	margin-left:10px;
+}
+#footer-widgets .widget{
+	margin-left:0;
+}
+.widget_gallery ul li, .widget_gallery ul li a, .widget_gallery ul li a img{
+	width:50px;
+	height:auto;
+}
+#footer-widgets .widget_gallery ul li, #footer-widgets .widget_gallery ul li a, 
+#footer-widgets .widget_gallery ul li a img {
+    width: 50px;
+}
+.password_protected{
+	padding:0 10px;
+}
+}

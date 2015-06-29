@@ -1,0 +1,17 @@
+#scmenu {
+  display:inline;
+  background-image: none;
+  padding:0;
+  margin:0; 
+  white-space:nowrap;
+  list-style-type:none;
+}
+
+#scmenu a {
+  padding:2px 2px 2px 2px;
+  margin:2px 2px 2px 2px;
+}
+
+.scmenucurrent {
+  color:#ff0000;
+}
