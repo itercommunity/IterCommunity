@@ -22,7 +22,7 @@ define('DB_NAME', 'cleaned');
 define('DB_USER', 'cleaned');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'gittwpi1');
+define('DB_PASSWORD', 'new$2u5');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
