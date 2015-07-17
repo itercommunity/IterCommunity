@@ -3794,3 +3794,31 @@ p.em-time-range > input + span.em-recurring-text {
 .rich_editor_text i {
     float: right;
 }
+
+.submit_button {
+  background: #73c7ff;
+  background-image: -webkit-linear-gradient(top, #73c7ff, #2980b9);
+  background-image: -moz-linear-gradient(top, #73c7ff, #2980b9);
+  background-image: -ms-linear-gradient(top, #73c7ff, #2980b9);
+  background-image: -o-linear-gradient(top, #73c7ff, #2980b9);
+  background-image: linear-gradient(to bottom, #73c7ff, #2980b9);
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 6px 14px 6px 14px;
+  border: solid #6cbad4 2px;
+  text-decoration: none;
+}
+
+.submit_button:hover {
+  background: #def2ff;
+  background-image: -webkit-linear-gradient(top, #def2ff, #667d8c);
+  background-image: -moz-linear-gradient(top, #def2ff, #667d8c);
+  background-image: -ms-linear-gradient(top, #def2ff, #667d8c);
+  background-image: -o-linear-gradient(top, #def2ff, #667d8c);
+  background-image: linear-gradient(to bottom, #def2ff, #667d8c);
+  text-decoration: none;
+}

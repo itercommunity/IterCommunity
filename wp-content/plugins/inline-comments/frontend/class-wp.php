@@ -26,9 +26,8 @@ class INCOM_WordPress extends INCOM_Frontend {
 	 */
 	function load_incom() { ?>
 		<script>
-			var $ind = jQuery.noConflict();
-
-			$ind(window).on( "load", function() {
+		(function ( $ ) {
+			$(window).on( "load", function() {
 				incom.init({
 					selectors: '<?php if (get_option("multiselector") == '') { echo "p"; } else { echo get_option("multiselector"); } ?>',
 					moveSiteSelector: '<?php if (get_option("moveselector") == '') { echo "body"; } else { echo get_option("moveselector"); } ?>',
@@ -46,7 +45,7 @@ class INCOM_WordPress extends INCOM_Frontend {
 				});
 			});
 
-			// $ind(document).ready(function() {
+			// $(document).ready(function() {
 			// 	incom.init({
 			// 		selectors: '<?php if (get_option("multiselector") == '') { echo "p"; } else { echo get_option("multiselector"); } ?>',
 			// 		moveSiteSelector: '<?php if (get_option("moveselector") == '') { echo "body"; } else { echo get_option("moveselector"); } ?>',
@@ -63,6 +62,7 @@ class INCOM_WordPress extends INCOM_Frontend {
 			// 		<?php do_action( 'incom_wp_set_options' ); ?>
 			// 	});
 			// });
+		})(jQuery);
 		</script>
 	<?php }
 
@@ -70,7 +70,11 @@ class INCOM_WordPress extends INCOM_Frontend {
 	 * Add scripts (like JS)
 	 */
 	function incom_enqueue_scripts() {
-		wp_enqueue_script( 'function', plugins_url( 'js/min/inline-comments-ck.js' , plugin_dir_path( __FILE__ ) ), array( 'jquery' ), true);	// In case 'wp_localize_script' is used: wp_enqueue_script must be enqueued before wp_localize_script
+		if ( defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ) {
+			wp_enqueue_script( 'incom-js', plugins_url( 'js/inline-comments.js' , plugin_dir_path( __FILE__ ) ), array( 'jquery' ), INCOM_VERSION );
+		} else {
+			wp_enqueue_script( 'incom-js', plugins_url( 'js/min/inline-comments.min.js' , plugin_dir_path( __FILE__ ) ), array( 'jquery' ), INCOM_VERSION );	// In case 'wp_localize_script' is used: wp_enqueue_script must be enqueued before wp_localize_script
+		}
 	}
 
 	/**

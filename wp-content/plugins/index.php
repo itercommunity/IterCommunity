@@ -1,3 +1,3 @@
 <?php
-// mum's the word.
+// Silence is golden.
 ?>

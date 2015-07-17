@@ -344,14 +344,14 @@ if ( ! function_exists( 'jd_shorten_link' ) ) { // prep work for future plug-in 
 										<label
 											for="suprlogin"><?php _e( "Your Su.pr Username:", 'wp-to-twitter' ); ?></label>
 										<input type="text" name="suprlogin" id="suprlogin" size="40"
-										       value="<?php echo( esc_attr( get_option( 'suprlogin' ) ) ) ?>"/>
+										       value="<?php esc_attr_e( get_option( 'suprlogin' ) ) ?>"/>
 									</p>
 
 									<p>
 										<label
 											for="suprapi"><?php _e( "Your Su.pr <abbr title='application programming interface'>API</abbr> Key:", 'wp-to-twitter' ); ?></label>
 										<input type="text" name="suprapi" id="suprapi" size="40"
-										       value="<?php echo( esc_attr( get_option( 'suprapi' ) ) ) ?>"/>
+										       value="<?php esc_attr_e( get_option( 'suprapi' ) ) ?>"/>
 									</p>
 
 									<div>
@@ -380,14 +380,14 @@ if ( ! function_exists( 'jd_shorten_link' ) ) { // prep work for future plug-in 
 										<label
 											for="bitlylogin"><?php _e( "Your Bit.ly username:", 'wp-to-twitter' ); ?></label>
 										<input type="text" name="bitlylogin" id="bitlylogin"
-										       value="<?php echo( esc_attr( get_option( 'bitlylogin' ) ) ) ?>"/>
+										       value="<?php esc_attr_e( get_option( 'bitlylogin' ) ) ?>"/>
 									</p>
 
 									<p>
 										<label
 											for="bitlyapi"><?php _e( "Your Bit.ly <abbr title='application programming interface'>API</abbr> Key:", 'wp-to-twitter' ); ?></label>
 										<input type="text" name="bitlyapi" id="bitlyapi" size="40"
-										       value="<?php echo( esc_attr( get_option( 'bitlyapi' ) ) ) ?>"/>
+										       value="<?php esc_attr_e( get_option( 'bitlyapi' ) ) ?>"/>
 									</p>
 
 									<p>
@@ -417,7 +417,7 @@ if ( ! function_exists( 'jd_shorten_link' ) ) { // prep work for future plug-in 
 										<label
 											for="yourlspath"><?php _e( 'Path to your YOURLS config file (Local installations)', 'wp-to-twitter' ); ?></label><br/><input
 											type="text" id="yourlspath" name="yourlspath" size="60"
-											value="<?php echo( esc_attr( get_option( 'yourlspath' ) ) ); ?>"/><br/>
+											value="<?php esc_attr_e( get_option( 'yourlspath' ) ); ?>"/><br/>
 										<small><?php _e( 'Example:', 'wp-to-twitter' ); ?> <code>/home/username/www/www/yourls/user/config.php</code>
 										</small>
 									</p>
@@ -425,7 +425,7 @@ if ( ! function_exists( 'jd_shorten_link' ) ) { // prep work for future plug-in 
 										<label
 											for="yourlsurl"><?php _e( 'URI to the YOURLS API (Remote installations)', 'wp-to-twitter' ); ?></label><br/><input
 											type="text" id="yourlsurl" name="yourlsurl" size="60"
-											value="<?php echo( esc_attr( get_option( 'yourlsurl' ) ) ); ?>"/><br/>
+											value="<?php esc_attr_e( get_option( 'yourlsurl' ) ); ?>"/><br/>
 										<small><?php _e( 'Example:', 'wp-to-twitter' ); ?> <code>http://domain.com/yourls-api.php</code>
 										</small>
 									</p>
@@ -433,7 +433,7 @@ if ( ! function_exists( 'jd_shorten_link' ) ) { // prep work for future plug-in 
 										<label
 											for="yourlstoken"><?php _e( "YOURLS signature token:", 'wp-to-twitter' ); ?></label>
 										<input type="text" name="yourlstoken" id="yourlstoken" size="30"
-										       value="<?php echo( esc_attr( get_option( 'yourlstoken' ) ) ) ?>"/>
+										       value="<?php esc_attr_e( get_option( 'yourlstoken' ) ) ?>"/>
 									</p>
 									<?php if ( get_option( 'yourlsapi' ) && get_option( 'yourlslogin' ) ) { ?>
 										<p>
@@ -477,14 +477,14 @@ if ( ! function_exists( 'jd_shorten_link' ) ) { // prep work for future plug-in 
 										<label
 											for="joturllogin"><?php _e( "Your jotURL public <abbr title='application programming interface'>API</abbr> key:", 'wp-to-twitter' ); ?></label>
 										<input type="text" name="joturllogin" id="joturllogin"
-										       value="<?php echo( esc_attr( get_option( 'joturllogin' ) ) ) ?>"/>
+										       value="<?php esc_attr_e( get_option( 'joturllogin' ) ) ?>"/>
 									</p>
 
 									<p>
 										<label
 											for="joturlapi"><?php _e( "Your jotURL private <abbr title='application programming interface'>API</abbr> key:", 'wp-to-twitter' ); ?></label>
 										<input type="text" name="joturlapi" id="joturlapi" size="40"
-										       value="<?php echo( esc_attr( get_option( 'joturlapi' ) ) ) ?>"/>
+										       value="<?php esc_attr_e( get_option( 'joturlapi' ) ) ?>"/>
 									</p>
 
 									<p>
@@ -492,7 +492,7 @@ if ( ! function_exists( 'jd_shorten_link' ) ) { // prep work for future plug-in 
 											for="joturl_longurl_params"><?php _e( "Parameters to add to the long URL (before shortening):", 'wp-to-twitter' ); ?></label>
 										<input type="text" name="joturl_longurl_params" id="joturl_longurl_params"
 										       size="40"
-										       value="<?php echo( esc_attr( get_option( 'joturl_longurl_params' ) ) ) ?>"/>
+										       value="<?php esc_attr_e( get_option( 'joturl_longurl_params' ) ) ?>"/>
 									</p>
 
 									<p>
@@ -500,7 +500,7 @@ if ( ! function_exists( 'jd_shorten_link' ) ) { // prep work for future plug-in 
 											for="joturl_shorturl_params"><?php _e( "Parameters to add to the short URL (after shortening):", 'wp-to-twitter' ); ?></label>
 										<input type="text" name="joturl_shorturl_params" id="joturl_shorturl_params"
 										       size="40"
-										       value="<?php echo( esc_attr( get_option( 'joturl_shorturl_params' ) ) ) ?>"/>
+										       value="<?php esc_attr_e( get_option( 'joturl_shorturl_params' ) ) ?>"/>
 									</p>
 
 									<p>

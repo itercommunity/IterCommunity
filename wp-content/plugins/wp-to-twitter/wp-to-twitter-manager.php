@@ -24,7 +24,7 @@ function wpt_updated_settings() {
 	// notifications from oauth connection		
 	if ( isset( $_POST['oauth_settings'] ) ) {
 		if ( $oauth_message == "success" ) {
-			$admin_url = ( is_plugin_active( 'wp-tweets-pro/wpt-pro-functions.php?tab=basic' ) ) ? admin_url( 'admin.php?page=wp-tweets-pro' ) : admin_url( 'options-general.php?page=wp-to-twitter/wp-to-twitter.php&amp;tab=basic' );
+			$admin_url = ( is_plugin_active( 'wp-tweets-pro/wpt-pro-functions.php' ) ) ? admin_url( 'admin.php?page=wp-tweets-pro?tab=basic' ) : admin_url( 'options-general.php?page=wp-to-twitter/wp-to-twitter.php&amp;tab=basic' );
 
 			print( '
 				<div id="message" class="updated fade">
@@ -291,6 +291,7 @@ function wpt_update_settings() {
 	
 								<div class='wptab wpt_types wpt_<?php echo $slug; ?>' aria-labelledby='tab_wpt_<?php echo $slug; ?>' role="tabpanel" id='wpt_<?php echo $slug; ?>'>
 									<?php
+									// share information about any usage of pre 2.8 category filters
 									if ( get_option( 'limit_categories' ) != '0' && $slug == 'post' ) {
 										$falseness  = get_option( 'jd_twit_cats' );
 										$categories = get_option( 'tweet_categories' );
@@ -371,7 +372,7 @@ function wpt_update_settings() {
 									<input aria-describedby="newlink-published-text-label" type="text"
 									       class="wpt-template" name="newlink-published-text"
 									       id="newlink-published-text" size="60" maxlength="120"
-									       value="<?php echo( esc_attr( stripslashes( get_option( 'newlink-published-text' ) ) ) ); ?>"/><br/><span
+									       value="<?php esc_attr_e( stripslashes( get_option( 'newlink-published-text' ) ) ); ?>"/><br/><span
 										id="newlink-published-text-label"><?php _e( 'Available shortcodes: <code>#url#</code>, <code>#title#</code>, and <code>#description#</code>.', 'wp-to-twitter' ); ?></span>
 								</p>
 							</fieldset>
@@ -466,7 +467,7 @@ function wpt_update_settings() {
 								<label
 									for="jd_replace_character"><?php _e( "Spaces in tags replaced with:", 'wp-to-twitter' ); ?></label>
 								<input type="text" name="jd_replace_character" id="jd_replace_character"
-								       value="<?php echo esc_attr( get_option( 'jd_replace_character' ) ); ?>"
+								       value="<?php esc_attr_e( get_option( 'jd_replace_character' ) ); ?>"
 								       size="3"/>
 							</p>
 
@@ -474,12 +475,12 @@ function wpt_update_settings() {
 								<label
 									for="jd_max_tags"><?php _e( "Maximum number of tags to include:", 'wp-to-twitter' ); ?></label>
 								<input aria-describedby="jd_max_characters_label" type="text" name="jd_max_tags"
-								       id="jd_max_tags" value="<?php echo esc_attr( get_option( 'jd_max_tags' ) ); ?>"
+								       id="jd_max_tags" value="<?php esc_attr_e( get_option( 'jd_max_tags' ) ); ?>"
 								       size="3"/>
 								<label
 									for="jd_max_characters"><?php _e( "Maximum length in characters for included tags:", 'wp-to-twitter' ); ?></label>
 								<input type="text" name="jd_max_characters" id="jd_max_characters"
-								       value="<?php echo esc_attr( get_option( 'jd_max_characters' ) ); ?>" size="3"/>
+								       value="<?php esc_attr_e( get_option( 'jd_max_characters' ) ); ?>" size="3"/>
 							</p>
 						</fieldset>
 						<fieldset>
@@ -511,14 +512,14 @@ function wpt_update_settings() {
 								<label
 									for="jd_twit_prepend"><?php _e( "Custom text before all Tweets:", 'wp-to-twitter' ); ?></label>
 								<input type="text" name="jd_twit_prepend" id="jd_twit_prepend" size="20"
-								       value="<?php echo( esc_attr( stripslashes( get_option( 'jd_twit_prepend' ) ) ) ) ?>"/>
+								       value="<?php esc_attr_e( stripslashes( get_option( 'jd_twit_prepend' ) ) ) ?>"/>
 							</p>
 
 							<p>
 								<label
 									for="jd_twit_append"><?php _e( "Custom text after all Tweets:", 'wp-to-twitter' ); ?></label>
 								<input type="text" name="jd_twit_append" id="jd_twit_append" size="20"
-								       value="<?php echo( esc_attr( stripslashes( get_option( 'jd_twit_append' ) ) ) ) ?>"/>
+								       value="<?php esc_attr_e( stripslashes( get_option( 'jd_twit_append' ) ) ) ?>"/>
 							</p>
 
 							<p>
@@ -526,7 +527,7 @@ function wpt_update_settings() {
 									for="jd_twit_custom_url"><?php _e( "Custom field for an alternate URL to be shortened and Tweeted:", 'wp-to-twitter' ); ?></label>
 								<input type="text" name="jd_twit_custom_url" id="jd_twit_custom_url" size="40"
 								       maxlength="120"
-								       value="<?php echo( esc_attr( stripslashes( get_option( 'jd_twit_custom_url' ) ) ) ) ?>"/>
+								       value="<?php esc_attr_e( stripslashes( get_option( 'jd_twit_custom_url' ) ) ) ?>"/>
 							</p>
 						</fieldset>
 
@@ -596,7 +597,7 @@ function wpt_update_settings() {
 									for="twitter-analytics-campaign"><?php _e( "Static Campaign identifier", 'wp-to-twitter' ); ?></label>
 								<input type="text" name="twitter-analytics-campaign" id="twitter-analytics-campaign"
 								       size="40" maxlength="120"
-								       value="<?php echo( esc_attr( get_option( 'twitter-analytics-campaign' ) ) ) ?>"/><br/>
+								       value="<?php esc_attr_e( get_option( 'twitter-analytics-campaign' ) ) ?>"/><br/>
 							</p>
 
 							<p>
@@ -767,7 +768,7 @@ function wpt_sidebar() {
 					} else {
 						$support_url = admin_url( 'options-general.php?page=wp-to-twitter/wp-to-twitter.php' );
 					} ?>
-					<a href="<?php echo add_query_arg( 'tab', 'support', $support_url ); ?>#get-support"><?php _e( "Get Support", 'wp-to-twitter' ); ?></a> &bull;
+					<a href="<?php echo esc_url( add_query_arg( 'tab', 'support', $support_url ) ); ?>#get-support"><?php _e( "Get Support", 'wp-to-twitter' ); ?></a> &bull;
 					<a href="https://www.joedolson.com/wp-content/uploads/wp-tweets-pro-users-guide-1.8.2.pdf"><?php _e( 'Read the Manual', 'wp-to-twitter' ); ?></a>
 					<?php if ( get_option( 'jd_donations' ) != 1 && ! function_exists( 'wpt_pro_exists' ) ) { ?>
 						<p><?php _e( '<a href="https://www.joedolson.com/wp-tweets-pro/">Get WP Tweets Pro</a> or <a href="http://www.joedolson.com/donate.php">Make a donation</a> today!', 'wp-to-twitter' ); ?></p>

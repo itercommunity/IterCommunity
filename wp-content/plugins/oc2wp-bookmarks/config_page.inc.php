@@ -62,12 +62,13 @@ function oc2wpbm_configuration_page(){
     <ol>
     <li>Chose the operation mode:
     <ol>
-      <li> OC App mode is recommended and for those that have the <a href="https://github.com/owncloud/Bookmarks" target="_blank"> ownCoud Bookmark App supporting REST </a> running on their owncloud.</li>
+      <li> OC App mode is recommended and for those that have the <a href="https://github.com/owncloud/Bookmarks" target="_blank"> ownCoud Bookmark App supporting REST (> version 8.0) </a> running on their owncloud.</li>
       <li> MySQL mode is for those who have access to the MySQL Database of their ownCloud instance and that wish to make use of bookmarks of several users.</li>
     </li></ol>
     <li>Enter the data to connect to the ownCloud Bookmarks App or to the MySQL Database. </li>
     <li>Add the shortcode <strong>[oc2wpbm]</strong> to a post or page that should contain a table with those bookmarks that have the tag 'public' or add the shortcode <strong>[oc2wpbm tags="public, example"]</strong> to display Bookmarks that have one of those tags. Bookmarks that have both tags can be selected via <strong>[oc2wpbmtags=”public, example” connector=”AND”]</strong>
     <li>Configure the design of the table e. g. like explained <a href="http://www.nolte-netzwerk.de/oc2wp-bookmarks-configuration/#configure the table layout" target="_blank"> in this tutorial </a>.</li>
+    <li>Make use of the widget like explained <a href="http://www.nolte-netzwerk.de/oc2wp-bookmarks-configuration/#widget" target="_blank"> here </a>.</li>
     </ol>
     </p>
   <br>

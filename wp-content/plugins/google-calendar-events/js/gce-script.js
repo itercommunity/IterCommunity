@@ -1,4 +1,3 @@
-
 /**
  * Public JS functions
  *
@@ -7,72 +6,117 @@
  * @license   GPL-2.0+
  * @copyright 2014 Phil Derksen
  */
+
+/* global jQuery, gce, gce_grid */
+
 (function($) {
 	'use strict';
 
+	// Set debug flag.
+	var script_debug = ( (typeof gce != 'undefined') && gce.script_debug == true);
+
 	$(function() {
 
-		gce_tooltips('.gce-has-events');
+		var $body = $( 'body' );
 		
 		if( typeof gce_grid != 'undefined' ) {
-			
-			$('body').on( 'click', '.gce-change-month', function(e) {
-				
-				var id = $(this).closest('.gce-calendar').parent().attr('id');
-				
-				e.preventDefault();
 
+			if (script_debug) {
+				console.log('gce_grid', gce_grid);
+			}
+			
+			var tooltip_elements = '';
+
+			$body.find('.gce-page-grid, .gce-widget-grid').each( function() {
+				var id = $(this).attr('id');
+
+				if( gce_grid[id].show_tooltips == 'true' || gce_grid[id].show_tooltips == true ) {
+					tooltip_elements += '#' + gce_grid[id].target_element + ' .gce-has-events,';
+				}
+			});
+			
+			tooltip_elements = tooltip_elements.substring( 0, tooltip_elements.length - 1 );
+		
+			gce_tooltips(tooltip_elements);
+
+			// Month nav link click for Grid view.
+			// TODO Unbind other attached clicks here?
+			$body.on( 'click.gceNavLink', '.gce-change-month', function( event ) {
+
+				event.preventDefault();
+
+				var navLink = $(this);
+
+				var id = navLink.closest('.gce-page-grid').attr('id');
+				
+				if( typeof id == 'undefined' ) {
+					id = navLink.closest('.gce-widget-grid').attr('id');
+				}
+				
 				//Extract month and year
-				var month_year = $(this).attr('name').split('-', 2);
-				var paging = $(this).attr('data-gce-grid-paging');
+				var month_year = navLink.attr('name').split('-', 2);
+				var paging = navLink.attr('data-gce-grid-paging');
 
 				//Add loading text to table caption
-				$('#' + gce_grid[id].target_element + ' caption').html(gce.loadingText);
+				$body.find('#' + gce_grid[id].target_element + ' caption').html(gce.loadingText);
+
 				//Send AJAX request
 				$.post(gce.ajaxurl,{
 					action:'gce_ajax',
+					gce_uid: id,
 					gce_type: gce_grid[id].type,
 					gce_feed_ids: gce_grid[id].feed_ids,
 					gce_title_text: gce_grid[id].title_text,
 					gce_widget_id: gce_grid[id].target_element,
 					gce_month: month_year[0],
 					gce_year: month_year[1],
-					gce_paging: paging,
-					gce_nonce: gce.ajaxnonce
-				}, function(data){
-					//Replace existing data with returned AJAX data
-					if(gce_grid[id].type == 'widget'){
-						$('#' + gce_grid[id].target_element).html(data);
-					}else{
-						$('#' + gce_grid[id].target_element).replaceWith(data);
+					gce_paging: paging
+
+				}, function(data) {
+
+					//Replace existing data with returned AJAX data.
+					var targetEle = $body.find('#' + gce_grid[id].target_element);
+
+					if (gce_grid[id].type == 'widget') {
+						targetEle.html(data);
+					} else {
+						targetEle.replaceWith(data);
 					}
-					gce_tooltips('#' + gce_grid[id].target_element + ' .gce-has-events');
+					
+					gce_tooltips(tooltip_elements);
+
+				}).fail(function(data) {
+					console.log( data );
 				});
 			});
 		}
 
-		$('body').on( 'click', '.gce-change-month-list', function(e) {
+		// Month nav link click for List view.
+		// TODO Unbind other attached clicks here?
+		$body.on( 'click.gceNavLink', '.gce-change-month-list', function( event ) {
 
-			e.preventDefault();
+			event.preventDefault();
 
-			var element = $(this);
-				
-			var start = $(this).parent().parent().parent().data('gce-start');
-			var grouped = $(this).parent().parent().parent().data('gce-grouped');
-			var title_text = $(this).parent().parent().parent().data('gce-title');
-			var feed_ids = $(this).parent().parent().parent().data( 'gce-feeds');
-			var sort = $(this).parent().parent().parent().data('gce-sort');
-			var paging = $(this).parent().parent().parent().data('gce-paging');
-			var paging_interval = $(this).parent().parent().parent().data('gce-paging-interval');
-			var paging_direction = $(this).data('gce-paging-direction');
-			var start_offset = $(this).parent().parent().parent().data('gce-start-offset');
-			var paging_type = $(this).data('gce-paging-type');
+			var navLink = $(this);
+			
+			var list = navLink.closest('.gce-list');
 
+			var start = list.data('gce-start');
+			var grouped = list.data('gce-grouped');
+			var title_text = list.data('gce-title');
+			var feed_ids = list.data( 'gce-feeds');
+			var sort = list.data('gce-sort');
+			var paging = list.data('gce-paging');
+			var paging_interval = list.data('gce-paging-interval');
+			var paging_direction = navLink.data('gce-paging-direction');
+			var start_offset = list.data('gce-start-offset');
+			var paging_type = navLink.data('gce-paging-type');
+			
 			//Add loading text to table caption
-			$(this).parent().parent().parent().find('.gce-month-title').html(gce.loadingText);
+			navLink.parents('.gce-navbar').find('.gce-month-title').html(gce.loadingText);
 
 			//Send AJAX request
-			jQuery.post(gce.ajaxurl,{
+			$.post(gce.ajaxurl,{
 				action:'gce_ajax_list',
 				gce_feed_ids:feed_ids,
 				gce_title_text:title_text,
@@ -83,24 +127,47 @@
 				gce_paging_interval: paging_interval,
 				gce_paging_direction: paging_direction,
 				gce_start_offset: start_offset,
-				gce_paging_type: paging_type,
-				gce_nonce: gce.ajaxnonce
+				gce_paging_type: paging_type
+
 			}, function(data){
-				element.parent().parent().parent().html(data);
+				navLink.parents('.gce-list').replaceWith(data);
+
+			}).fail(function(data) {
+				console.log( data );
 			});
 		});
 
+		// Tooltip config using qTip2 jQuery plugin.
 		function gce_tooltips(target_items) {
-			$(target_items).each(function(){
+
+			$(target_items).each(function() {
+
 				//Add qtip to all target items
 				$(this).qtip({
-					content: $(this).children('.gce-event-info'),
-					position: { corner: { target: 'center', tooltip: 'bottomLeft' }, adjust: { screen: true } },
-					hide: { fixed: true, delay: 100, effect: { length: 0 } },
-					show: { solo: true, delay: 0, effect: { length: 0 } },
-					style: { padding: "0", classes: { tooltip: 'gce-qtip', tip: 'gce-qtip-tip', title: 'gce-qtip-title', content: 'gce-qtip-content', active: 'gce-qtip-active' }, border: { width: 0 } }
+					content: $(this).find('.gce-event-info'),
+					position: {
+						my: 'bottom left',
+						at: 'center',
+						viewport: true,
+						adjust: {
+							method: 'shift',
+							scroll: false
+						}
+					},
+					show: {
+						solo: true,
+						effect: function(offset) {
+							$(this).fadeIn(50);
+						}
+					},
+					hide: {
+						fixed: true
+					},
+					style: {
+						classes: 'qtip-light qtip-shadow qtip-rounded'
+					}
 				});
 			});
 		}
 	});
-}(jQuery))
+}(jQuery));

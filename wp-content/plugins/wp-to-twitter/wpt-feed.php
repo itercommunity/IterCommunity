@@ -193,14 +193,23 @@ class WPT_TwitterFeed {
 			if ( $options['geocode'] != '' ) {
 				$args['geocode'] = urlencode( $options['geocode'] );
 			}
-			$url    = esc_url( add_query_arg( $args, 'https://api.twitter.com/1.1/search/tweets.json' ) );
+			$url    = add_query_arg( $args, 'https://api.twitter.com/1.1/search/tweets.json' );
 			$result = $connection->get( $url, $options );
 		} else {
 			$result = $connection->get( 'https://api.twitter.com/1.1/statuses/user_timeline.json', $options );
 		}
 		$result = json_decode( $result );
 		if ( isset( $options['search'] ) ) {
-			$result = $result->statuses;
+			if ( !method_exists( $result, 'errors' ) ) {
+				$result = $result->statuses;
+			} else {
+				$errors = $result->errors;
+				$return = '';
+				foreach ( $errors as $error ) {
+					$return .= "<li>$error->message</li>";
+				}
+				echo "<ul>" . $return . "</ul>"; return;
+			}
 		}
 		if ( is_file( $this->getCacheLocation() ) ) {
 			$cache = json_decode( file_get_contents( $this->getCacheLocation() ), true );

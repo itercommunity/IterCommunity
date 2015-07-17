@@ -1,9 +1,9 @@
 <?php
 /* 
 Plugin Name: OC2WP Bookmarks
-Version: 1.0.0
+Version: 1.1.0
 Plugin URI: http://www.nolte-netzwerk.de/oc2wp-bookmarks-configuration/
-Description: Use bookmarks that are managed by ownCloud in WordPress posts and pages as table
+Description: Use bookmarks that are managed by ownCloud in WordPress posts and pages as table or as list in widgets
 Author: Mario Nolte
 Author URI: http://www.nolte-netzwerk.de/
 Licence:  GPLv2
@@ -70,6 +70,7 @@ register_uninstall_hook(__FILE__,'oc2wpbm_plugin_uninstall');
 /*import the class file for Bookmark Class*/
 require_once( plugin_dir_path( __FILE__ ) . 'bookmark.inc.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'config_page.inc.php' );
+require_once( plugin_dir_path( __FILE__ ) . 'widget.inc.php' );
 
 /* get bookmarks in accordance to the defined tag and the specified user (as owner of the bookmarks) out of the database and return an array of bookmarks*/
 function getBMfromSQL($tags, $order){
@@ -163,8 +164,7 @@ $tableoutput .= "</tr></thead>";
 $tableoutput .= "<tbody>";
 	  
   for ($i=0; $i<count($bookmarks); $i++){
-  $tags = $bookmarks[$i] ->tags;
-  
+    
   $tableoutput .= "<tr>";
     if(get_option('oc2wpbm_table_number_display')=='1'){
       $tableoutput .= "<td class='column-1'>" . ($i+1) . "</td>";
@@ -177,11 +177,7 @@ $tableoutput .= "<tbody>";
       }
     if(get_option('oc2wpbm_table_tags_display')=='1'){
       $tableoutput .= "<td class='column-4'>"; 
-	// ensure that the tag 'public' is not displayed and a commata is used as separator
-	for($j=0; $j<count($tags); $j++){
-	if (strtolower($tags[$j])!='public') {$tableoutput .= $tags[$j];
-	if ($j+1<count($tags)){$tableoutput .= ", "; }}
-	}
+      $tableoutput .= oc2wpbm_arrayToTagstext($bookmarks[$i] ->tags);
       $tableoutput .= " </td>";
       }
     if(get_option('oc2wpbm_table_lastmodified_display')=='1'){
@@ -197,7 +193,7 @@ $tableoutput .= $tablescript;
 return $tableoutput;
 }
 
-//copies those Bookmarks out of $bookmarks into a new array that have not all tags contained in $tagArray. Unfortunatley unset() left articfacts in the array so that this copy-into-a-new-array-approach was chosen.
+/* copies those Bookmarks out of $bookmarks into a new array that have not all tags contained in $tagArray. Unfortunatley unset() left articfacts in the array so that this copy-into-a-new-array-approach was chosen. */
 function oc2wpbm_filterBookmarks($bookmarks, $tagArray) {
   $j=0;
   for ($i=0; $i<count($bookmarks); $i++){
@@ -206,8 +202,26 @@ function oc2wpbm_filterBookmarks($bookmarks, $tagArray) {
       $j=$j+1;      
      };
   }
-
 return $newBookmarks;
+}
+
+/* transforming the tags entered by users to an array by relieving it from spaces between commata */
+function oc2wpbm_textToTagsArray($tagsText){
+  $tagsText = ereg_replace (', ', ',', $tagsText );
+  $tagsText = ereg_replace (' , ', ',', $tagsText );
+  $tagsText = ereg_replace (' ,', ',', $tagsText );
+  //...  and transform the commata separated tags into an array  
+  $tagArray = explode(',', $tagsText);
+  return $tagArray;
+}
+
+/* transforming an array containing tags to a text without the tag 'public' */
+function oc2wpbm_arrayToTagstext($tagArray){
+  if (in_array('public', $tagArray)) {
+    unset($tagArray[array_search('public',$tagArray)]);
+  }
+  $tagText = implode(', ', $tagArray);
+  return $tagText;
 }
 
 /* Coordinates the mehod call related to the operation mode & the connector and returns the HTML code which replaces the shortcode in pages and posts
@@ -218,14 +232,9 @@ return $newBookmarks;
 */
 function oc2wpbm_shortcode($atts) {
   $shortcodeArray = shortcode_atts( array('tags' => 'public', 'connector' => 'OR','order' => 'asc',), $atts );
-  // free shortcode from spaces next to the commata...
-  $tagsText=$shortcodeArray['tags'];
-  $tagsText = ereg_replace (', ', ',', $tagsText );
-  $tagsText = ereg_replace (' , ', ',', $tagsText );
-  $tagsText = ereg_replace (' ,', ',', $tagsText );
-  //...  and transform the commata separated tags into an array  
-  $tagArray = explode(',', $tagsText);
-      
+ 
+  $tagArray = oc2wpbm_textToTagsArray($shortcodeArray['tags']);
+
   if(get_option('oc2wpbm_op_type')=='sql'){
     $bookmarks = getBMfromSQL($tagArray, $shortcodeArray['order']);
   }
@@ -243,15 +252,19 @@ function oc2wpbm_shortcode($atts) {
   return $output;
 }
 
-/* Hooks shortcode oc2wpbm into WordPress*/
+/* Hooks shortcode oc2wpbm into WordPress */
 add_shortcode('oc2wpbm', 'oc2wpbm_shortcode');
 
 
-/* hook configuration page into the setting area of the wordpress backend*/
-function oc2wpbm_plugin_menu()
-{
-add_options_page('ownCloud 2 WordPress Bookmarks', 'OC2WP Bookmarks', 'manage_options', __FILE__, 'oc2wpbm_configuration_page');
-}
+/* hook configuration page and widget into the wordpress backend */
+function oc2wpbm_plugin_menu() {
+      add_options_page('ownCloud 2 WordPress Bookmarks', 'OC2WP Bookmarks', 'manage_options', __FILE__, 'oc2wpbm_configuration_page');
+  }
+
+function oc2WPBM_register_widget() {
+     register_widget( 'oc2wpBMwidget' );
+ }
 
 add_action('admin_menu', 'oc2wpbm_plugin_menu');
+add_action( 'widgets_init', 'oc2WPBM_register_widget' );
 ?>

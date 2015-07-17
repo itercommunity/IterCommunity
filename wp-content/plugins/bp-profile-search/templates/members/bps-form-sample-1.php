@@ -12,10 +12,14 @@
 	$toggle_id = 'bps_toggle'. $F->id;
 	$form_id = 'bps_'. $F->location. $F->id;
 
-	if ($F->location != 'directory')  echo "<div id='buddypress'>";
-
-	if ($F->location == 'directory')
+	if ($F->location != 'directory')
 	{
+		$action = $F->action;
+		echo "<div id='buddypress'>";
+	}
+	else
+	{
+		$action = '';
 ?>
 	<div class="item-list-tabs bps_header">
 	  <ul>
@@ -43,7 +47,7 @@
 <?php
 	}
 
-	echo "<form action='$F->action' method='$F->method' id='$form_id' class='standard-form'>\n";
+	echo "<form action='$action' method='$F->method' id='$form_id' class='standard-form'>\n";
 
 	$j = 0;
 	foreach ($F->fields as $f)

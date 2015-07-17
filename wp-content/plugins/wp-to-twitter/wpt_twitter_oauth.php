@@ -6,7 +6,6 @@
  *
  */
 
-/* Load WPOAuth lib. You can find it at http://WPOAuth.net */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } // Exit if accessed directly

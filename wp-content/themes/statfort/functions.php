@@ -1053,11 +1053,11 @@ function cs_admin_scripts_enqueue() {
 
 
 
-require_once (TEMPLATEPATH . '/include/event.php');
+// require_once (TEMPLATEPATH . '/include/event.php');
 
 require_once (TEMPLATEPATH . '/include/slider.php');
 
-require_once (TEMPLATEPATH . '/include/gallery.php');
+// require_once (TEMPLATEPATH . '/include/gallery.php');
 
 require_once (TEMPLATEPATH . '/include/page_builder.php');
 
@@ -1065,11 +1065,11 @@ require_once (TEMPLATEPATH . '/include/post_meta.php');
 
 require_once (TEMPLATEPATH . '/include/short_code.php');
 
-require_once (TEMPLATEPATH . '/include/course.php');
+// require_once (TEMPLATEPATH . '/include/course.php');
 
 require_once (TEMPLATEPATH . '/include/admin_functions.php');
 
-require_once (TEMPLATEPATH . '/include/team.php');
+// require_once (TEMPLATEPATH . '/include/team.php');
 
 require_once (TEMPLATEPATH . '/include/widgets.php');
 
@@ -1084,11 +1084,9 @@ require_once (TEMPLATEPATH . '/include/mailchimpapi/chimp_mc_plugin.class.php');
 
 /////// Require Woocommerce///////
 
+// require_once (TEMPLATEPATH . '/include/config_woocommerce/config.php');
 
-
-require_once (TEMPLATEPATH . '/include/config_woocommerce/config.php');
-
-require_once (TEMPLATEPATH . '/include/config_woocommerce/product_meta.php');
+// require_once (TEMPLATEPATH . '/include/config_woocommerce/product_meta.php');
 
 
 

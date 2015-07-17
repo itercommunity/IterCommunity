@@ -3,7 +3,7 @@
 Plugin Name: WP to Twitter
 Plugin URI: http://www.joedolson.com/wp-to-twitter/
 Description: Posts a Tweet when you update your WordPress blog or post a link, using your URL shortening service. Rich in features for customizing and promoting your Tweets.
-Version: 3.0.6
+Version: 3.0.7
 Author: Joseph Dolson
 Author URI: http://www.joedolson.com/
 */
@@ -54,7 +54,7 @@ require_once( plugin_dir_path( __FILE__ ) . '/wpt-feed.php' );
 require_once( plugin_dir_path( __FILE__ ) . '/wpt-widget.php' );
 
 global $wpt_version;
-$wpt_version = "3.0.6";
+$wpt_version = "3.0.7";
 load_plugin_textdomain( 'wp-to-twitter', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
 
 // check for OAuth configuration
@@ -678,11 +678,17 @@ function jd_post_info( $post_ID ) {
 	$excerpt_length        = get_option( 'jd_post_excerpt' );
 	$post_excerpt          = ( trim( $post->post_excerpt ) == "" ) ? @mb_substr( strip_tags( strip_shortcodes( $post->post_content ) ), 0, $excerpt_length ) : @mb_substr( strip_tags( strip_shortcodes( $post->post_excerpt ) ), 0, $excerpt_length );
 	$values['postExcerpt'] = html_entity_decode( $post_excerpt, ENT_COMPAT, $encoding );
-	$thisposttitle         = stripcslashes( strip_tags( $post->post_title ) );
+	$thisposttitle         = $post->post_title;
 	if ( $thisposttitle == "" && isset( $_POST['title'] ) ) {
-		$thisposttitle = stripcslashes( strip_tags( $_POST['title'] ) );
+		$thisposttitle = $_POST['title'];
 	}
-	$values['postTitle']  = html_entity_decode( $thisposttitle, ENT_COMPAT, $encoding );
+	$thisposttitle = strip_tags( apply_filters( 'the_title', stripcslashes( $thisposttitle ) ) );
+	// These are common sequences that don't get handled by html_entity_decode due to double encoding
+	$search = array( '&apos;', '&#039;', '&quot;', '&#034;', '&amp;', '&#038;' );
+	$replace = array( "'", '"', '"', '&', '&' );
+	$thisposttitle = str_replace( $search, $replace, $thisposttitle );	
+	$values['postTitle']  = html_entity_decode( $thisposttitle, ENT_QUOTES, $encoding );
+
 	$values['postLink']   = wpt_link( $post_ID );
 	$values['blogTitle']  = get_bloginfo( 'name' );
 	$values['shortUrl']   = wpt_short_url( $post_ID );
@@ -1228,7 +1234,7 @@ function jd_add_twitter_inner_box( $post ) {
 			}
 		} else {
 			?>
-			<input type="hidden" name='_jd_twitter' value='<?php echo esc_attr( $tweet ); ?>'/>
+			<input type="hidden" name='_jd_twitter' value='<?php esc_attr_e( $tweet ); ?>'/>
 		<?php
 		}
 		if ( current_user_can( 'wpt_twitter_switch' ) || current_user_can( 'manage_options' ) ) {
@@ -1324,13 +1330,15 @@ function jd_add_twitter_inner_box( $post ) {
 			} ?>
 		</div>
 		<p class="wpt-support">
-			<?php if ( ! function_exists( 'wpt_pro_exists' ) ) { ?>
+			<?php if ( ! function_exists( 'wpt_pro_exists' ) ) { 
+			/* These aren't actually usages that require esc_url. But using it will give people the illusion that it does something. */
+			?>
 				<a target="_blank"
-				   href="<?php echo add_query_arg( 'tab', 'support', admin_url( 'options-general.php?page=wp-to-twitter/wp-to-twitter.php' ) ); ?>#get-support"><?php _e( 'Get Support', 'wp-to-twitter', 'wp-to-twitter' ) ?></a> &bull;
+				   href="<?php echo esc_url( add_query_arg( 'tab', 'support', admin_url( 'options-general.php?page=wp-to-twitter/wp-to-twitter.php' ) ) ); ?>#get-support"><?php _e( 'Get Support', 'wp-to-twitter', 'wp-to-twitter' ); ?></a> &bull;
 				<strong><a target="__blank" href="https://www.joedolson.com/wp-tweets-pro/"><?php _e( 'Go Premium', 'wp-to-twitter', 'wp-to-twitter' ) ?></a></strong> &raquo;
 			<?php } else { ?>
 				<a target="_blank"
-				   href="<?php echo add_query_arg( 'tab', 'support', admin_url( 'admin.php?page=wp-tweets-pro' ) ); ?>#get-support"><?php _e( 'Get Support', 'wp-to-twitter', 'wp-to-twitter' ) ?></a> &raquo;
+				   href="<?php echo esc_url( add_query_arg( 'tab', 'support', admin_url( 'admin.php?page=wp-tweets-pro' ) ) ); ?>#get-support"><?php _e( 'Get Support', 'wp-to-twitter', 'wp-to-twitter' ); ?></a> &raquo;
 			<?php } ?>
 		</p>
 		<?php wpt_show_tweets( $previous_tweets, $failed_tweets ); ?>

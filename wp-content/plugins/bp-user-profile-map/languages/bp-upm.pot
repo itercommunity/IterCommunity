@@ -1,0 +1,529 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: bp-user-profile-map\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-05-01 20:35-0000\n"
+"PO-Revision-Date: 2012-05-01 20:37-0000\n"
+"Last-Translator: Hugo - hnla <hugo.ashmore@gmail.com>\n"
+"Language-Team: team Hugo, hnla <hugo.ashmore@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_;_e\n"
+"X-Poedit-Basepath: e:\\www\\bp-repos\\bp-user-profile-map\\\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED KINGDOM\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: e:\\www\\bp-repos\\bp-user-profile-map\n"
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0/upm-widget.php:102
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0.1/upm-widget.php:102
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/upm-widget.php:102
+msgid "Title:"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0/upm-widget.php:104
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0.1/upm-widget.php:104
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/upm-widget.php:104
+msgid "Set the map width:"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0/upm-widget.php:105
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0.1/upm-widget.php:105
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/upm-widget.php:105
+msgid "Set the map height:"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0/admin/upm-admin.php:47
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0.1/admin/upm-admin.php:47
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:58
+msgid "User Profile Map Settings Admin"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0/admin/upm-admin.php:51
+msgid "To use profile maps either displayed through page action hooks using the radio selections below or via the widget you must have first set up a new custom xprofile field called <b>Location</b>This is important as the map script looks for this field and value to obtain map location data."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0/admin/upm-admin.php:52
+msgid "If you have not yet set up a location field please vist the <a href=\"<?php echo site_url() ?>/wp-admin/admin.php?page=bp-profile-setup\">Profile Field Setup</a> page."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0/admin/upm-admin.php:53
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0.1/admin/upm-admin.php:53
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:64
+msgid "You can either set the location field in the base group to show it on the sign up page or create a new group for the field name in which case it will show in the users profle setup and public display only."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0/admin/upm-admin.php:56
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0.1/admin/upm-admin.php:56
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:67
+msgid "Styling of the map elements is kept to a minimum, you might need to add styles for your theme via a child theme style.css sheet."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0/admin/upm-admin.php:58
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0.1/admin/upm-admin.php:58
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:71
+msgid "Set map dimensions - Note: you may set the height only for proportional width or set both values"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0/admin/upm-admin.php:62
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0.1/admin/upm-admin.php:62
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:78
+msgid "Map width (e.g 300 to  = 300px)"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0/admin/upm-admin.php:68
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0.1/admin/upm-admin.php:68
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:84
+msgid "Map height"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0/admin/upm-admin.php:74
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0.1/admin/upm-admin.php:74
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:123
+msgid "Select the area of the members account /profile page you would like to display the map in N.B defaults to no region"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0/admin/upm-admin.php:76
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0.1/admin/upm-admin.php:76
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:125
+msgid "Do not display "
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0/admin/upm-admin.php:80
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0.1/admin/upm-admin.php:80
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:129
+msgid "bp_before_member_header_meta "
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0/admin/upm-admin.php:84
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0.1/admin/upm-admin.php:84
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:133
+msgid "bp_profile_header_meta "
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0/admin/upm-admin.php:88
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0.1/admin/upm-admin.php:88
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:137
+msgid "bp_after_member_header "
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0/admin/upm-admin.php:92
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0.1/admin/upm-admin.php:92
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:141
+msgid "bp_before_loop_content "
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0/admin/upm-admin.php:95
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0.1/admin/upm-admin.php:95
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:144
+msgid "Set checkbox to display map on the members directory listings: this is a work in progress if  indeed possible! Currently disabled."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0/admin/upm-admin.php:97
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0.1/admin/upm-admin.php:97
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:146
+msgid "Members directory listing page "
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0/admin/upm-admin.php:102
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0.1/admin/upm-admin.php:102
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:151
+msgid "Save Settings"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0.1/admin/upm-admin.php:51
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:62
+msgid "To use profile maps either displayed through page action hooks using the radio selections below or via the widget you must have first set up a new custom xprofile field called <b>Location</b> This is important as the map script looks for this field and value to obtain map location data."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.0.1/admin/upm-admin.php:52
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:63
+msgid "If you have not yet set up a location field please vist the <a href=\"/wp-admin/admin.php?page=bp-profile-setup\">Profile Field Setup</a> page."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:69
+msgid "Map configuration options"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:89
+msgid "If no map dimensions are set here the map will default to display at a width and height of 200px"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:91
+msgid "Map Zoom"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:96
+msgid "Map zoom sets the level of detail shown on the map, the higher the value the more you zoom into the location. Values between 8 &amp; 16 work well. If no value set Zoom value defaults to 11."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:99
+msgid "Show the map navigation overlay controls. "
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:103
+msgid "If  want to display a set of navigation controls, i.e zoom, pan etc then check the box above to  show these controls on the maps."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:106
+msgid "Set the map navigation control size to small. "
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:110
+msgid "Google maps adjusts certain map controls according to the maps dimensions  I.E the larger the map the more complex and larger the controls will be. If you wish to keep the navigation controls fixed as small check the box above."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:113
+msgid "Set map type control as a dropdown"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:117
+msgid "Map type controls select the map view I.E. Map, Satellite, Hybrid, these selections default to dropdown for small maps and inline boxes for larger maps. If you would like to display as a dropdown only then check the box above"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.1/admin/upm-admin.php:121
+msgid "Page display options"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.2/admin/upm-admin.php:70
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.2.1/admin/upm-admin.php:70
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:133
+msgid "If you have not yet set up a location field please visit the <a href=\""
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.2/admin/upm-admin.php:78
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.2.1/admin/upm-admin.php:78
+msgid "Set map dimensions - Note: you may set the height only for proportional width or set both values."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.2/admin/upm-admin.php:110
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.2.1/admin/upm-admin.php:110
+msgid "If you want to display a set of navigation controls, i.e zoom, pan etc then check the box above to  show these controls on the maps."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.2/admin/upm-admin.php:136
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.2.1/admin/upm-admin.php:136
+msgid "bp_before_member_header_meta <i>Will display before header meta to the right.</i>"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.2/admin/upm-admin.php:140
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.2.1/admin/upm-admin.php:140
+msgid "bp_profile_header_meta <i>Will display after the header meta.</i>"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.2/admin/upm-admin.php:144
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.2.1/admin/upm-admin.php:144
+msgid "bp_after_member_header <i>Displays after the members header content.</i>"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.2/admin/upm-admin.php:148
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.2.1/admin/upm-admin.php:148
+msgid "bp_before_loop_content <i>Displays on the members public profile view to the right.</i>"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/upm-widget.php:36
+#: e:\www\bp-repos\bp-user-profile-map/trunk/upm-widget.php:36
+#: e:\www\bp-repos\bp-user-profile-map/trunk/upm.php:485
+#: e:\www\bp-repos\bp-user-profile-map/trunk/upm.php:543
+#: e:\www\bp-repos\bp-user-profile-map/trunk/upm.php:627
+#: e:\www\bp-repos\bp-user-profile-map/trunk/upm.php:685
+msgid "Location: "
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/upm-widget.php:107
+#: e:\www\bp-repos\bp-user-profile-map/trunk/upm-widget.php:107
+msgid "This map widget only displays a map while viewing a user profile screen."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/upm-widget.php:109
+#: e:\www\bp-repos\bp-user-profile-map/trunk/upm-widget.php:109
+msgid "You may set height on it's own  for propotional width or set both values."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/upm-widget.php:112
+#: e:\www\bp-repos\bp-user-profile-map/trunk/upm-widget.php:112
+msgid "Set the map zoom:"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:126
+msgid "User Profile Map & single page maps configuration options"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:132
+msgid "To use The BuddyPress profile or members list maps you must have first set up a new custom xprofile field to ask users for a location. This is important as the map script looks for this field and value to obtain map location data, you may name this field as you choose and then enter that name below."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:137
+msgid "Displaying Maps"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:138
+msgid "There are three options for displaying maps; as an embedded function call, as a shortcode, or on BuddyPress specific pages."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:140
+msgid "<b>As a function call:</b>"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:141
+msgid "you can add a function directly to your WP template files/pages. copy paste the function below along with any parameters you choose."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:146
+msgid "Available parameters are: "
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:147
+msgid "('address string', 'width', 'height', 'unit', 'zoom', 'show navigation', 'navigation size', 'navigation type')"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:147
+msgid " Set address as a string e.g London or pass a comma seperated address string 'Buckingham Palace, London, UK'.  Width &amp; height are numeric strings e.g '200' and default to pixel units. To allow the map take the available width (width:auto) simply leave the parameter empty e.g '' but a fixed height does need to be set. Setting 'unit' to '%' will convert any width string you set to a percentage value for fluid widths. 'zoom' sets the degree of magnification, defaults to 12. 'show navigation' Show the navigation  set to 'nav-yes' or leave empty for no navigation. 'navigation size' restrict the size of the navigation bar by setting to 'small' this overrides Googles default auto adjustment of controls for larger map sizes, leave value empty for default size behaviour. 'navigation type' controls how the nav bar behaves set to 'dropdown' for smaller maps or 'horizontal' to allow a horizontal nav bar"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:148
+msgid "Example: "
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:150
+msgid "<b>As a Shortcode:</b>"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:151
+msgid "You can set a map as a shortcode for any post or page you create by adding this shortcode into your post or page content body"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:153
+#, php-format
+msgid "Use all the values shown, ones left as empty i.e \"\" will simply default to pre set values. As with the function above leave both 'width' and 'unit' empty for a auto width, set unit to '%' for a percentage width. Leave 'show_nav' and 'nav_size' empty for no navigation and nav size as google default adjusting according to map size dynamically. An empty map type control removes the map type, setting it as 'dropdown' forces the type control to dropdown setting 'horizontal' displays normal wide type bar."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:155
+msgid "<b>On BuddyPress pages:</b>"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:156
+msgid "BuddyPress options are explained in the various options further down the page."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:159
+msgid "General options"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:161
+msgid "BP xprofile field name: Set the name of your location profile field, this will override the default 'Location' e.g if you have set a profile field for location but called it 'Country' add 'Country' in the field."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:162
+msgid "Select the pages you wish to display location maps on."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:163
+msgid "Enable or disable built in styles - styles are minimal and users may need to further style their maps to fit their theme."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:164
+msgid "Map title display the title <i>'Location: your users location address'</i> above each map. Uncheck the box to remove titles."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:165
+msgid "Currently if you have members list maps and profile map in action there is an issue if viewing your friends list as it uses the members directory loop and map dimension will be the same for user profile as well as the looped friends rather than as you may have set as seperate sizes."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:191
+msgid "Group Members List "
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:199
+msgid "Users Account Screens "
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:207
+msgid "Enable Built in styles "
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:215
+msgid "Display titles for maps e.g 'Location: Buckingham Palace, London'"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:224
+msgid "Set map dimensions - Note: You may leave the width field empty which will cause the map to display at width auto (CSS default) matching the width of it's parent if the parent is fluid the map width will adjust accordingly, however when map is floated a width needs to be stated, this can be simply a value '200' for pixel width or a percentage. "
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:234
+msgid "Map width"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:250
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:287
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:324
+msgid "Set width as a percentage"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:271
+msgid "Members Directory Map width"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:279
+msgid "Members Directory Map height"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:294
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:331
+msgid "If no map dimensions are set here the map will default to display at a width and height of 150px"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:308
+msgid "Group Members Map width"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:316
+msgid "Group Members Map height"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:336
+msgid "Map Overlay Controls"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:354
+msgid "If you want to display a set of navigation controls, i.e zoom, pan etc then check the box below to show these controls on the maps."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:365
+msgid "Google maps adjusts certain map controls according to the maps dimensions  If maps are smaller than 320px the default small overlays are used, if bigger then items like the map type bar is Horizontal. If you wish to keep the navigation controls fixed as small check the box below."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:376
+msgid "Map type controls select the map view I.E. Map, Satellite, Hybrid, these selections default for small maps and inline boxes for larger maps. If you would like to display as a dropdown only then check the box below"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:380
+msgid "Show map type bar"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:397
+msgid "Select the areas you would like to display the map in N.B defaults to no region"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:402
+msgid "Select region for user profile display"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:408
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:435
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:456
+msgid " Do not display "
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:411
+msgid " bp_before_member_header_meta <i>Will display before header meta to the right.</i>"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:414
+msgid " bp_profile_header_meta <i>Will display after the header meta.</i>"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:417
+msgid " bp_after_member_header <i>Displays after the members header content.</i>"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:420
+msgid " bp_before_loop_content <i>Displays on the members public profile view to the right.</i>"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:429
+msgid "Select region for Members directory display"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:438
+msgid " bp_directory_members_item <i>Displays in the list item area, after user avatar and activity meta.</i>"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:441
+msgid " bp_directory_members_actions <i>Displays in the members list action area.</i>"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:450
+msgid "Select region for Group Members List "
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:459
+msgid " bp_group_members_list_item <i>Displays in the list item area, after user avatar and activity meta.</i>"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/tags/1.3/admin/upm-admin.php:462
+msgid " bp_group_members_list_item_action <i>Displays in the group members list action area.</i>"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/trunk/upm.php:335
+#: e:\www\bp-repos\bp-user-profile-map/trunk/upm.php:553
+#: e:\www\bp-repos\bp-user-profile-map/trunk/upm.php:676
+msgid "Get Directions"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/trunk/admin/upm-admin.php:172
+msgid "Styling of the map elements is kept to a minimum, you might need to add styles for your theme via your primary styles, all elements of the maps are well tokenised so styling is fairly easy."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/trunk/admin/upm-admin.php:184
+msgid "('address string', 'width', 'height', 'unit', 'display address', 'zoom', 'show navigation', 'navigation size', 'navigation type')"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/trunk/admin/upm-admin.php:187
+msgid "<b>As a Shortcode</b>"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/trunk/admin/upm-admin.php:190
+#, php-format
+msgid "Use all the values shown, ones left as empty i.e \"\" will simply default to pre set values. As with the function above leave both 'width' and 'unit' empty for a auto width, set unit to '%' for a percentage width. 'display_address' set to 'no' turns off the address as a title. Leave 'show_nav' and 'nav_size' empty for no navigation and nav size as google default adjusting according to map size dynamically. An empty map type control removes the map type, setting it as 'dropdown' forces the type control to dropdown setting 'horizontal' displays normal wide type bar."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/trunk/admin/upm-admin.php:192
+msgid "<b>On BuddyPress pages.</b>"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/trunk/admin/upm-admin.php:201
+msgid "Map title display the title <i>'Location: your users location address'</i> above each map. Uncheck the box to remove titles. Address parts are extracted and wrapped in spans for ease of styling."
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/trunk/admin/upm-admin.php:202
+msgid "Map infoWindows are popups available when you click on the map marker. Currently these display the location address and a link to get map directions. Use the options to select on which maps you show these. Generally this option isn't required on maps displaying user locations but may be usefull on standalone maps via the function or shortcode methods. <b>N.B.</b> these info windows require a map of approx 300px width or greater to display correctly, they do not work well on small maps, currently if a map is set to display at less than '300' the infowindow popup will be disabled.</b>"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/trunk/admin/upm-admin.php:252
+msgid "Display titles for maps e.g 'Location: Buckingham Palace, London' for BP user account/members/groups screens"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/trunk/admin/upm-admin.php:260
+msgid "Enable map infowindow for member,group, user account screens"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/trunk/admin/upm-admin.php:268
+msgid "Enable map infowindow for shortcode maps"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/trunk/admin/upm-admin.php:276
+msgid "Enable map infowindow for function call maps"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/trunk/admin/upm-admin.php:282
+msgid "Info Window Options"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/trunk/admin/upm-admin.php:284
+msgid "<b>Link Text</b> - <i>Default 'Get Directions' if left blank</i>"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/trunk/admin/upm-admin.php:287
+msgid "Show Address"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/trunk/admin/upm-admin.php:495
+msgid "This option requires adding a function in the profile loop page \\members\\single\\profile-loop.php. Add <code>&lt;?php if( function_exists('upm_add_map_profile_field') ) : upm_add_map_profile_field(); endif ; ?></code> to the loop just before <code>'bp_the_profile_field_value()'</code> so it will look like <code>&lt;td class=\"data\">&lt;?php if( function_exists('upm_add_map_profile_field') ) : upm_add_map_profile_field(); endif ; ?><?php bp_the_profile_field_value(); ?></code>"
+msgstr ""
+
+#: e:\www\bp-repos\bp-user-profile-map/trunk/admin/upm-admin.php:496
+msgid " Users profile screen <i>Displays the map on the public profile screen but in the profile entry for your 'location' field.</i>"
+msgstr ""
+

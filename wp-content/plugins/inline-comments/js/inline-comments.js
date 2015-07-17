@@ -10,7 +10,7 @@
   // IDs
   var idWrapper = 'incom_wrapper';
     var idWrapperHash = '#'+idWrapper;
-  var idWrapperAppendTo = 'body'; // Alternative: 'body'
+  var idWrapperAppendTo = 'html';
   var idCommentsAndForm = 'comments-and-form';
     var idCommentsAndFormHash = '#'+idCommentsAndForm;
   var idCommentForm = 'incom-commentform';
@@ -65,7 +65,10 @@
 
   incom.init = function( options ) {
     setOptions( options );
-    initIncomWrapper();
+    setIncomWrapper();
+
+    initElementsAndBubblesFromSelectors();
+
     displayBranding();
     references();
 
@@ -74,6 +77,7 @@
       $( idCommentsAndFormHash + ' #commentform' ).attr( "id", idCommentForm );
     });
 
+    handleEvents.init();
   };
 
 
@@ -107,39 +111,100 @@
   /* 
    * This wrapper contains comment bubbles
    */
-  var initIncomWrapper = function() {
+  var setIncomWrapper = function() {
     if ( $( idWrapperHash ).length === 0 ) {
       $( '<div id="'+idWrapper+'"></div>' ).appendTo( $( idWrapperAppendTo ) )
         .addClass( classPosition + o.position );
     }
-    
-    initSelectElements();
   };
 
-
-  /* 
-   * Select elements and increase counter per element type (instead of using one counter for all elements independent of their types).
+  /*
+   * Setup elements and bubbles that depend on selectors
    */
-  var initSelectElements = function() {
-    var selectors = splitSelectors( o.selectors );
-
-    $( selectors ).each( function(j) {
-
-      $( selectors[j] ).each( function(i) {
-        var $element = $( this );
-        var identifier = getIdentifier( $element );
-
-        i = increaseIdentifierNumberIfAttPropExists( i, identifier );
-
-        addAtt( i, $element, identifier );
-        addBubble( $element );
-      });
-
+  var initElementsAndBubblesFromSelectors = function() {
+    $( o.selectors ).each( function() {
+      addAttToElement( $(this) );
+      bubble.createFromElement( $(this) );
     });
   };
 
   /*
+   * Add attribute attDataIncom to element; increase counter per element type (instead of using one counter for all elements independent of their types).
+   */
+   var addAttToElement = function( $element, i ) {
+      i = i || 0;
+
+      // Only proceed if element has no attribute attDataIncom yet
+      if ( !$element.attr( attDataIncom ) ) {
+        var identifier = getIdentifier( $element );
+
+        // Increase i when specific attProp (value of attDataIncom) already exists
+        i = increaseIdentifierNumberIfAttPropExists( i, identifier );
+        
+        var attProp = identifier + i; // WOULD BE BETTER: var attProp = identifier + '-' + i; // BUT THAT WOULD CONFLICT WITH ALREADY STORED COMMENTS
+
+        //@TODO: Add part that assigns comment to specific article/page/post (article-id); include fallback in cause a comment has no ID (yet)
+
+        $element.attr( attDataIncom, attProp );
+      }
+   };
+
+   var bubble = {
+     /*
+      * Set bubble position and visibility
+      */
+     set : function( options ) {
+      var opt = $.extend( {
+          posX: undefined,
+          posY: undefined,
+          id: undefined,
+          visible: false,
+        },
+      options);
+
+      //@TODO
+      /*
+      if (!exists … && id !== undefined ) {
+        createBubble + addAtt
+      }
+      else if ( ( posX && posY ) !== undefined && ( changedPosX || changedPosY ) ) {
+        recalculatePos
+      }
+      
+      if ( opt.visible ) {
+        displayBubble
+      }
+      */
+     },
+     
+     /*
+      * Add bubble depending on an element
+      */
+     createFromElement : function( $element ) {
+      //@TODO
+      addBubble( $element );
+     }
+
+   };
+
+   /*
+    * Example: Getter and Setter
+    */
+   // function Selectors( val ) {
+   //    var selectors = val;
+
+   //    this.getValue = function(){
+   //        return selectors;
+   //    };
+
+   //    this.setValue = function( val ){
+   //        selectors = splitSelectors( val );
+   //    };
+   // }
+
+  /*
    * Use the first five letters of the element's name as identifier
+   * @return string
    */
   var getIdentifier = function( element ) {
     var identifier = element.prop('tagName').substr(0,5);
@@ -148,8 +213,7 @@
 
   /*
    * Increase identifier number (i) if that specific attProp was already used. attProp must be unique
-   *
-   * @return
+   * @return int
    */
   var increaseIdentifierNumberIfAttPropExists = function( i, identifier ) {
     var attProp = identifier + i;
@@ -163,18 +227,6 @@
     attDataIncomArr.push(attProp);
 
     return i;
-  };
-
-  /*
-   * Add attribute attDataIncom to each element
-   */
-  var addAtt = function( i, element, identifier ) {
-    // If element has no attribute attDataIncom, add it
-    if ( !element.attr( attDataIncom ) ) {
-    	var attProp = identifier + i; // WOULD BE BETTER: var attProp = identifier + '-' + i; // BUT THAT WOULD CONFLICT WITH ALREADY STORED COMMENTS
-
-    	element.attr( attDataIncom, attProp );
-    }
   };
 
   /*
@@ -560,11 +612,65 @@
   };
 
   var moveLeftOrRight = function( element, value ) {
-    if ( testIfPositionRight() ) {
-      element.css( { 'right' : value  } );
-    } else {
-      element.css( { 'left' : value  } );
-    }
+    var direction = testIfPositionRight() ? 'right' : 'left';
+    var options = {};
+    options[direction] = value;
+
+    element.css( options );
+
+
+// element.animate(options,{
+//    duration: 500,
+//           step:function(now, fn){
+//             fn.start = 0;
+//             fn.end = value;
+//             $(element).css({
+//                 '-webkit-transform':'translateX(-'+now+'px)',
+//                 '-moz-transform':'translateX(-'+now+'px)',
+//                 '-o-transform':'translateX(-'+now+'px)',
+//                 'transform':'translateX(-'+now+'px)'
+//             });
+//           }
+// });
+
+    // if ( testIfPositionRight() ) {
+    //   element.css( { 
+    //     '-webkit-transform': translateX(-100%);
+    //     -moz-transform: translateX(-100%);
+    //     -ms-transform: translateX(-100%);
+    //     -o-transform: translateX(-100%);
+    //     transform: translateX(-100%)
+
+    //    } );
+    // } else {
+    //   element.css( { 'left' : value  } );
+    // }
+
+
+
+    // if ( testIfPositionRight() ) {
+    //   // element.css( { 'right' : value  } );
+
+    //   // element.animate({
+    //   //   width: "toggle",
+    //   //   height: "toggle"
+    //   // }, {
+    //   //   duration: 5000,
+    //   //   specialEasing: {
+    //   //     width: "linear",
+    //   //     height: "easeOutBounce"
+    //   //   },
+    //   //   complete: function() {
+    //   //     $( this ).after( "<div>Animation complete.</div>" );
+    //   //   }
+    //   // });
+    //   element.animate({
+    //       right: value,
+    //     }, "fast" );
+
+    // } else {
+    //   element.css( { 'left' : value  } );
+    // }
   };
 
   var moveElement = function( way, selector ) {
@@ -616,6 +722,33 @@
   };
 
   /*
+   * Define all event handler functions here
+   * @since 2.1.1
+   */
+  var handleEvents = {
+    init : function() {
+      this.permalinksHandler();
+    },
+
+    permalinksHandler : function() {
+      $(idCommentsAndFormHash).on( 'click', 'a.incom-permalink', function() {
+        var $target = $(this.hash);
+
+        if ( $target.length ) {
+
+          animateScrolling($target);
+
+          var href = $(this).attr("href");
+          changeUrl(href);
+
+          return false;
+        }
+      });
+    }
+  };
+
+
+  /*
    * Load scroll script
    * @since 2.1
    *
@@ -628,11 +761,8 @@
       var $target = $( '['+target+'="'+targetValue+'"]' );
 
       if ( $target.length ) {
-        var targetOffset = $target.offset().top - 30;
 
-        $( 'html, body' ).animate({
-            scrollTop: targetOffset
-        }, 1200, 'quart' );
+        animateScrolling($target);
 
         removeExistingClasses( classScrolledTo );
         $target.addClass( classScrolledTo );
@@ -665,10 +795,7 @@
     
     if ( $element.length ) {
 
-      $element.css({
-        'display': 'block',
-        'visibility': 'visible',
-      });
+      $element.attr("style", "display:block!important;visibility:visible!important");
 
       // When the opacity/alpha is to low, increase opacity and color it black
       if ( 
@@ -743,19 +870,38 @@
   };
 
   /*
-   * Split selectors
-   * @return array
-   */
-  var splitSelectors = function( selectors ) {
-    var splitSelectors = selectors.split(',');
-    return splitSelectors;
-  };
-
-  /*
    * Set easing "quart"
    */
   $.easing.quart = function (x, t, b, c, d) {
     return -c * ((t=t/d-1)*t*t*t - 1) + b;
+  };
+
+  /*
+   * Change URL
+   * @param href = complete URL
+   */
+  var changeUrl = function( href ) {
+    history.pushState(null, null, href);
+    if(history.pushState) {
+        history.pushState(null, null, href);
+    }
+    else {
+        location.hash = href;
+    }
+  };
+
+  /*
+   * Animate scrolling
+   * @param $target (expects unique jQuery object)
+   */
+
+  var animateScrolling = function( $target ) {
+    var $scrollingRoot = $('html, body');
+    var targetOffset = $target.offset().top - 30;
+
+    $scrollingRoot.animate({
+        scrollTop: targetOffset
+    }, 1200, 'quart' );
   };
 
 }( window.incom = window.incom || {}, jQuery ));

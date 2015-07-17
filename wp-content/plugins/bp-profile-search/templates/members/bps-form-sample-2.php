@@ -12,8 +12,13 @@
 	$toggle_id = 'bps_toggle'. $F->id;
 	$form_id = 'bps_'. $F->location. $F->id;
 
-	if ($F->location == 'directory')
+	if ($F->location != 'directory')
 	{
+		$action = $F->action;
+	}
+	else
+	{
+		$action = '';
 ?>
 	<div class="bps_header">
 		<?php echo $F->header; ?>
@@ -40,7 +45,7 @@
 <?php
 	}
 
-	echo "<form action='$F->action' method='$F->method' id='$form_id'>\n";
+	echo "<form action='$action' method='$F->method' id='$form_id'>\n";
 
 	foreach ($F->fields as $f)
 	{

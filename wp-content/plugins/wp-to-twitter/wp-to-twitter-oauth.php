@@ -195,10 +195,10 @@ function wtt_connect_oauth( $auth = false ) {
 			echo "<div class='error'><p>$message</p></div>";
 		}
 
-		$ack = ( ! $auth ) ? esc_attr( get_option( 'app_consumer_key' ) ) : esc_attr( get_user_meta( $auth, 'app_consumer_key', true ) );
-		$acs = ( ! $auth ) ? esc_attr( get_option( 'app_consumer_secret' ) ) : esc_attr( get_user_meta( $auth, 'app_consumer_secret', true ) );
-		$ot  = ( ! $auth ) ? esc_attr( get_option( 'oauth_token' ) ) : esc_attr( get_user_meta( $auth, 'oauth_token', true ) );
-		$ots = ( ! $auth ) ? esc_attr( get_option( 'oauth_token_secret' ) ) : esc_attr( get_user_meta( $auth, 'oauth_token_secret', true ) );
+		$ack = ( ! $auth ) ? get_option( 'app_consumer_key' ) : get_user_meta( $auth, 'app_consumer_key', true );
+		$acs = ( ! $auth ) ? get_option( 'app_consumer_secret' ) : get_user_meta( $auth, 'app_consumer_secret', true );
+		$ot  = ( ! $auth ) ? get_option( 'oauth_token' ) : get_user_meta( $auth, 'oauth_token', true );
+		$ots = ( ! $auth ) ? get_option( 'oauth_token_secret' ) : get_user_meta( $auth, 'oauth_token_secret', true );
 
 		$submit = ( ! $auth ) ? '<p class="submit"><input type="submit" name="submit" class="button-primary" value="' . __( 'Connect to Twitter', 'wp-to-twitter' ) . '" /></p>' : '';
 		print( '
@@ -213,7 +213,7 @@ function wtt_connect_oauth( $auth = false ) {
 						<li>' . __( 'If you\'re not currently logged in to Twitter, log-in to the account you want associated with this site', 'wp-to-twitter' ) . '</li>
 						<li>' . __( 'Your application name cannot include the word "Twitter."', 'wp-to-twitter' ) . '</li>
 						<li>' . __( 'Your Application Description can be anything.', 'wp-to-twitter' ) . '</li>
-						<li>' . __( 'The WebSite and Callback URL should be ', 'wp-to-twitter' ) . '<strong>' . get_bloginfo( 'url' ) . '</strong></li>
+						<li>' . __( 'The WebSite and Callback URL should be ', 'wp-to-twitter' ) . '<strong>' . esc_url( home_url() ) . '</strong></li>
 						</ul>
 					<p><em>' . __( 'Agree to the Twitter Developer Agreement and continue.', 'wp-to-twitter' ) . '</em></p>
 					<h4>' . __( '2. Switch to the "Permissions" tab in Twitter apps', 'wp-to-twitter' ) . '</h4>
@@ -231,11 +231,11 @@ function wtt_connect_oauth( $auth = false ) {
 					<div class="tokens">
 					<p>
 						<label for="wtt_app_consumer_key">' . __( 'API Key', 'wp-to-twitter' ) . '</label>
-						<input type="text" size="45" name="wtt_app_consumer_key" id="wtt_app_consumer_key" value="' . $ack . '" />
+						<input type="text" size="45" name="wtt_app_consumer_key" id="wtt_app_consumer_key" value="' . esc_attr( $ack ) . '" />
 					</p>
 					<p>
 						<label for="wtt_app_consumer_secret">' . __( 'API Secret', 'wp-to-twitter' ) . '</label>
-						<input type="text" size="45" name="wtt_app_consumer_secret" id="wtt_app_consumer_secret" value="' . $acs . '" />
+						<input type="text" size="45" name="wtt_app_consumer_secret" id="wtt_app_consumer_secret" value="' . esc_attr( $acs ) . '" />
 					</p>
 					</div>
 					<h4>' . __( '4. Copy and paste your Access Token and Access Token Secret into the fields below', 'wp-to-twitter' ) . '</h4>
@@ -243,11 +243,11 @@ function wtt_connect_oauth( $auth = false ) {
 					<div class="tokens">
 					<p>
 						<label for="wtt_oauth_token">' . __( 'Access Token', 'wp-to-twitter' ) . '</label>
-						<input type="text" size="45" name="wtt_oauth_token" id="wtt_oauth_token" value="' . $ot . '" />
+						<input type="text" size="45" name="wtt_oauth_token" id="wtt_oauth_token" value="' . esc_attr( $ot ) . '" />
 					</p>
 					<p>
 						<label for="wtt_oauth_token_secret">' . __( 'Access Token Secret', 'wp-to-twitter' ) . '</label>
-						<input type="text" size="45" name="wtt_oauth_token_secret" id="wtt_oauth_token_secret" value="' . $ots . '" />
+						<input type="text" size="45" name="wtt_oauth_token_secret" id="wtt_oauth_token_secret" value="' . esc_attr( $ots ) . '" />
 					</p>
 					</div>
 				</fieldset>

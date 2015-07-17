@@ -53,8 +53,70 @@ class Google_Calendar_Events_Admin {
 		// Add admin styles
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
 		
+		// Add admin JS
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
+		
 		// Add the options page and menu item.
 		add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ), 2 );
+		
+		// Add admin notice after plugin activation. Also check if should be hidden.
+		add_action( 'admin_notices', array( $this, 'show_admin_notice' ) );
+	}
+	
+	/**
+	 * Show notice after plugin install/activate
+	 * Also check if user chooses to hide it.
+	 *
+	 * @since   2.1.0
+	 */
+	public function show_admin_notice() {
+		// Exit all of this is stored value is false/0 or not set.
+		if ( false == get_option( 'gce_show_admin_install_notice' ) ) {
+			return;
+		}
+		
+		$screen = get_current_screen();
+
+		// Delete stored value if "hide" button click detected (custom querystring value set to 1).
+		if ( ! empty( $_REQUEST['gce-dismiss-install-nag'] ) ||  in_array( $screen->id, $this->plugin_screen_hook_suffix ) || $this->viewing_this_plugin() ) {
+			delete_option( 'gce_show_admin_install_notice' );
+			return;
+		}
+
+		// At this point show install notice. Show it only on the plugin screen.
+		if( get_current_screen()->id == 'plugins' ) {
+			include_once( 'includes/admin/admin-notice.php' );
+		}
+	}
+	
+	/**
+	 * Check if viewing one of this plugin's admin pages.
+	 *
+	 * @since   2.1.0
+	 *$this->viewing_this_plugin()
+	 * @return  bool
+	 */
+	private function viewing_this_plugin() {
+		if ( ! isset( $this->plugin_screen_hook_suffix ) ) {
+			return false;
+		}
+		
+		$screen = get_current_screen();
+
+		if ( $screen->id == 'edit-gce_feed' || $screen->id == 'gce_feed' || in_array( $screen->id, $this->plugin_screen_hook_suffix ) || $screen->id == 'widgets' ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	/**
+	 * Fired when the plugin is activated.
+	 *
+	 * @since    2.1.0
+	 */
+	public static function activate() {
+		update_option( 'gce_show_admin_install_notice', 1 );
 	}
 	
 	public function add_plugin_admin_menu() {
@@ -73,6 +135,19 @@ class Google_Calendar_Events_Admin {
 		include_once( 'views/admin/admin.php' );
 	}
 	
+	 /**
+	 * Enqueue JS for the admin area
+	 * 
+	 * @since 2.0.0
+	 */
+	public function enqueue_admin_scripts() {
+		
+		if( $this->viewing_this_plugin() ) {
+			wp_enqueue_script( 'jquery-ui-datepicker' );
+			wp_enqueue_script( 'gce-admin', plugins_url( 'js/gce-admin.js', __FILE__ ), array( 'jquery' ), $this->version, true );
+		}
+	}
+	
 	/**
 	 * Enqueue styles for the admin area
 	 * 
@@ -80,9 +155,17 @@ class Google_Calendar_Events_Admin {
 	 */
 	public function enqueue_admin_styles() {
 		
-		wp_enqueue_style( 'jquery-ui-datepicker-css', plugins_url( 'css/jquery-ui-1.10.4.custom.min.css', __FILE__ ), array(), $this->version );
-		
-		wp_enqueue_style( 'gce-admin', plugins_url( 'css/admin.css', __FILE__ ), array(), $this->version, 'all' );
+		if( $this->viewing_this_plugin() ) {
+			global $wp_scripts;
+
+			// get the jquery ui object
+			$queryui = $wp_scripts->query( 'jquery-ui-datepicker' );
+
+			// Use minified CSS from CDN referenced at https://code.jquery.com/ui/
+			wp_enqueue_style( 'jquery-ui-smoothness', '//code.jquery.com/ui/' . $queryui->ver . '/themes/smoothness/jquery-ui.min.css', array(), $this->version );
+ 			
+ 			wp_enqueue_style( 'gce-admin', plugins_url( 'css/admin.css', __FILE__ ), array(), $this->version, 'all' );
+ 		}
 	}
 	
 	/**
@@ -131,11 +214,10 @@ class Google_Calendar_Events_Admin {
 
 		return array_merge(
 			array(
+				'settings' => '<a href="' . admin_url( 'edit.php?post_type=gce_feed&page=google-calendar-events_general_settings' ) . '">' . __( 'General Settings', 'gce' ) . '</a>',
 				'feeds'    => '<a href="' . admin_url( 'edit.php?post_type=gce_feed' ) . '">' . __( 'Feeds', 'gce' ) . '</a>'
-				//'settings' => '<a href="' . admin_url( 'edit.php?post_type=gce_feed&page=google-calendar-events_general_settings' ) . '">' . __( 'Settings', 'gce' ) . '</a>',
 			),
 			$links
 		);
-
 	}
 }

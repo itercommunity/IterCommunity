@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 function jd_truncate_tweet( $tweet, $post, $post_ID, $retweet = false, $ref = false ) {
 	// media file occupies 22 characters, need to account for in shortening.
 	$maxlength    = apply_filters( 'wpt_max_tweet_length', array( 'with_media' => 116, 'without_media' => 139 ) );
-	$tweet_length = ( wpt_post_with_media( $post_ID ) ) ? $maxlength['with_media'] : $maxlength['without_media'];
+	$tweet_length = ( wpt_post_with_media( $post_ID, $post ) ) ? $maxlength['with_media'] : $maxlength['without_media'];
 	$tweet        = apply_filters( 'wpt_tweet_sentence', $tweet, $post_ID );
 	$tweet        = trim( wpt_custom_shortcodes( $tweet, $post_ID ) );
 	$shrink       = ( $post['shortUrl'] != '' ) ? $post['shortUrl'] : apply_filters( 'wptt_shorten_link', $post['postLink'], $post['postTitle'], $post_ID, false );
@@ -82,7 +82,7 @@ function jd_truncate_tweet( $tweet, $post, $post_ID, $retweet = false, $ref = fa
 		// there are no tags in this Tweet. Truncate and return.
 		$post_tweet = mb_substr( $tweet, 0, $tweet_length, $encoding );
 
-		return $post_tweet;
+		return apply_filters( 'wpt_custom_truncate', $post_tweet, $tweet, $post_ID, $retweet );
 	}
 	if ( function_exists( 'wpt_pro_exists' ) && wpt_pro_exists() == true ) {
 		$reference = ( $ref ) ? $account : '@' . get_option( 'wtt_twitter_username' );
@@ -135,7 +135,7 @@ function jd_truncate_tweet( $tweet, $post, $post_ID, $retweet = false, $ref = fa
 			$post_tweet = mb_substr( $post_tweet, 0, $tweet_length, $encoding );
 		}
 
-		return $post_tweet; // return early if all is well without replacements.
+		return apply_filters( 'wpt_custom_truncate', $post_tweet, $tweet, $post_ID, $retweet ); // return early if all is well without replacements.
 	} else {
 		// build an array of variable names and the number of characters in that variable.
 		$length_array             = array();
@@ -222,5 +222,5 @@ function jd_truncate_tweet( $tweet, $post, $post_ID, $retweet = false, $ref = fa
 		}
 	}
 
-	return apply_filters( 'wpt_custom_truncate', $post_tweet, $tweet, $post_ID, $retweet ); // catch all, should never happen. But no reason not to include it.
+	return apply_filters( 'wpt_custom_truncate', $post_tweet, $tweet, $post_ID, $retweet );
 }

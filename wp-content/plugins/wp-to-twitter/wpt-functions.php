@@ -615,7 +615,7 @@ $plugins_string
         <input type='checkbox' name='has_donated' id='has_donated' value='on' $checked /> <label for='has_donated'>" . sprintf( __( 'I have <a href="%1$s">made a donation to help support this plug-in</a>', 'wp-to-twitter' ), 'http://www.joedolson.com/donate.php' ) . "</label>
         </p>
         <p>
-        <label for='support_request'>" . __( 'Support Request:', 'wp-to-twitter' ) . "</label><br /><textarea class='support-request' name='support_request' id='support_request' cols='80' rows='10'>" . stripslashes( esc_attr( $request ) ) . "</textarea>
+        <label for='support_request'>" . __( 'Support Request:', 'wp-to-twitter' ) . "</label><br /><textarea class='support-request' name='support_request' id='support_request' cols='80' rows='10' class='widefat'>" . stripslashes( esc_attr( $request ) ) . "</textarea>
 		</p>
 		<p>
 		<input type='submit' value='" . __( 'Send Support Request', 'wp-to-twitter' ) . "' name='wpt_support' class='button-primary' />

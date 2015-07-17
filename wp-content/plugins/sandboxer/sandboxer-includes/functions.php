@@ -195,7 +195,7 @@ function custom_sboxr_project() {
 		'label'               => __( 'sboxr_project', 'text_domain' ),
 		'description'         => __( 'Iter Commons projects. ', 'text_domain' ),
 		'labels'              => $labels,
-		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'page-attributes', ),
+		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'page-attributes', ),
 		'taxonomies'          => array( 'category', 'post_tag' ),
 		'hierarchical'        => false,
 		'public'              => true,
@@ -208,7 +208,7 @@ function custom_sboxr_project() {
 		'has_archive'         => true,
 		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
-		'capability_type'     =>  'post',	
+		'capability_type'	  =>  'post',
 		// 'capabilities'        => $capabilities,
 	);
 	register_post_type( 'sboxr_project', $args );
@@ -217,6 +217,64 @@ function custom_sboxr_project() {
 
 // Hook into the 'init' action
 add_action( 'init', 'custom_sboxr_project', 0 );
+
+
+// publish and associate the form
+
+function sboxr_application_submission( $entry, $form ) {
+	if (function_exists('bbp_update_forum')) {
+	    //getting post
+    	$post = get_post( $entry['post_id'] );
+
+	    //changing post content
+    	// wp_mail('mikedewolfe@gmail.com', 'TESTING '.__LINE__, print_r($form, TRUE));
+    
+	    foreach ($form['fields'] as $key => $values) {
+    		if ($values['label'] == 'forum_id') {
+    			$post->post_parent = $values['defaultValue'];
+    			break;
+    		}   
+	    }
+
+		$forum_meta = array(
+			'forum_id' => $post->post_parent,
+			'topic_id' => $post->ID,		
+			'last_topic_id' => $post->ID,					
+			'comment_status' => 'open'
+		);
+		$post->comment_status = 'open';	
+		$post->post_status = 'publish';
+
+		bbp_update_forum(array('forum_id' => $post->post_parent));
+	    //updating post
+		wp_update_post($post);
+
+		foreach ( $forum_meta as $meta_key => $meta_value ) {
+			update_post_meta( $post->ID, '_bbp_' . $meta_key, $meta_value );
+		}	
+		update_post_meta( $post->post_parent, '_bbp_last_topic_id', $post->ID );		
+		
+		// add a protem IC Project post
+		
+		$new_post = $post;
+		unset($new_post->ID);
+		unset($new_post->guid); 
+		unset($new_post->ID); 
+		$new_post->post_type = 'sboxr_project';
+		$new_post->post_status = 'pending';
+		
+		$new_post_id = wp_insert_post((array) $new_post);
+		
+		// add post meta data for the new post
+		add_post_meta($new_post_id, 'sboxr_techcontact', $entry['8.3'].' '.$entry['8.6']);
+		add_post_meta($new_post_id, 'sboxr_team', $entry['9']);			
+		add_post_meta($new_post_id, 'sboxr_name', $entry['1']);		
+	}
+}
+
+// Hook to make the gravity form submission to connect to forum post creation
+add_action( 'gform_after_submission_2', 'sboxr_application_submission', 10, 2 );
+
 
 /*
 
@@ -254,6 +312,8 @@ function sboxr_meta_box_settings( $post ) {
 	$sboxr_status = get_post_meta($post->ID, 'sboxr_status', TRUE); 
 	$sboxr_user = get_post_meta($post->ID, 'sboxr_user', TRUE); 
 	$sboxr_module = get_post_meta($post->ID, 'sboxr_module', TRUE); 
+	$sboxr_techcontact = get_post_meta($post->ID, 'sboxr_techcontact', TRUE); 
+	$sboxr_team = get_post_meta($post->ID, 'sboxr_team', TRUE); 
 		
 	$module_list = sboxr_modules_discover();
 	$module_status = sboxr_modules_get();
@@ -289,6 +349,10 @@ function sboxr_meta_box_settings( $post ) {
 				?>
 			</select>
 		</li>
+		<!-- added on 2015-07-06 -->
+		<li class="wide" id="sboxr_techcontact">Technical Contact: <input type="text" name="sboxr_techcontact" value="<?php echo esc_attr($sboxr_techcontact); ?>" /></li>
+		<li class="wide" id="sboxr_team">Team Members: <textarea name="sboxr_team" cols="20" rows="6" /><?php echo esc_attr($sboxr_team); ?></textarea><br/></li>		
+		
 		<li class="wide" id="sboxr_username">Username: <input type="text" name="sboxr_username" value="<?php echo esc_attr($sboxr_username); ?>" /></li>
 		<li class="wide" id="sboxr_password">Password: <input type="text" name="sboxr_password" /><br/><small>* Passwords are not retrained. They are only used for the project space installation.</small></li>		
 			<?php } else { ?>
@@ -297,6 +361,9 @@ function sboxr_meta_box_settings( $post ) {
 		<li class="wide" id="sboxr_name">Project Name: <?php echo $sboxr_name; ?></li>			
 		<li class="wide" id="sboxr_path">Project Path: <a href="http://www.itercom.org/<?php echo $sboxr_path; ?>">http://www.itercom.org/<?php echo $sboxr_path; ?></a></li>			
 		<li class="wide" id="sboxr_module">Installation Profile: <?php echo $modules[@$sboxr_module]['title']; ?></li>
+		<!-- added on 2015-07-06 -->
+		<li class="wide" id="sboxr_techcontact">Technical Contact: <input type="text" name="sboxr_techcontact" value="<?php echo esc_attr($sboxr_techcontact); ?>" /></li>
+		<li class="wide" id="sboxr_team">Team Members: <textarea name="sboxr_team" cols="20" rows="6" /><?php echo esc_attr($sboxr_team); ?></textarea><br/></li>				
 		<li class="wide" id="sboxr_username">Admin Username: <?php echo $sboxr_user; ?></li>
 			
 		<?php } ?>		
@@ -345,9 +412,17 @@ function sboxr_meta_all_update($post_id) {
 			if (!empty($_POST['sboxr_module'])) {
 				add_post_meta($post_id, 'sboxr_module', $_POST['sboxr_module']);
 			}		
+			
+			if (!empty($_POST['sboxr_techcontact'])) {
+				add_post_meta($post_id, 'sboxr_techcontact', $_POST['sboxr_techcontact']);
+			}
+			if (!empty($_POST['sboxr_team'])) {
+				add_post_meta($post_id, 'sboxr_team', $_POST['sboxr_team']);
+			}	
+					
 			if (!empty($_POST['sboxr_username'])) {
 				add_post_meta($post_id, 'sboxr_username', $_POST['sboxr_username']);
-			}
+			}			
 			if (!empty($_POST['sboxr_password'])) {		
 				// something in here
 			}	

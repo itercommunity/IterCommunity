@@ -6,13 +6,13 @@
  * @author          Phil Derksen <pderksen@gmail.com>, Nick Young <mycorpweb@gmail.com>
  * @license         GPL-2.0+
  * @link            http://philderksen.com
- * @copyright       2014 Phil Derksen
+ * @copyright       2014-2015 Phil Derksen
  *
  * @wordpress-plugin
  * Plugin Name:     Google Calendar Events
  * Plugin URI:      https://github.com/pderksen/WP-Google-Calendar-Events
- * Description:     Parses Google Calendar feeds and displays the events as a calendar grid or list on a page, post or widget.
- * Version:         2.0.7
+ * Description:     Show off your Google calendar in grid (month) or list view, in a post, page or widget, and in a style that matches your site.
+ * Version:         2.2.5
  * Author:          Phil Derksen
  * Author URI:      http://philderksen.com
  * License:         GPL-2.0+
@@ -23,7 +23,7 @@
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
-	die;
+	die();
 }
 
 /*
@@ -56,5 +56,12 @@ add_action( 'plugins_loaded', array( 'Google_Calendar_Events', 'get_instance' ) 
  */
 if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
 	require_once( 'class-google-calendar-events-admin.php' );
+	
+	// Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
+	register_activation_hook( __FILE__, array( 'Google_Calendar_Events_Admin', 'activate' ) );
+	
+	// Get plugin admin class instance
 	add_action( 'plugins_loaded', array( 'Google_Calendar_Events_Admin', 'get_instance' ) );
 }
+
+

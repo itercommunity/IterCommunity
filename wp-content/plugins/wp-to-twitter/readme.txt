@@ -3,10 +3,10 @@ Contributors: joedolson
 Donate link: http://www.joedolson.com/donate/
 Tags: twitter, microblogging, su.pr, bitly, yourls, redirect, shortener, post, links, social, sharing, media, tweet
 Requires at least: 3.9.2
-Tested up to: 4.1.1
+Tested up to: 4.2.2
 License: GPLv2 or later
 Text Domain: wp-to-twitter
-Stable tag: 3.0.5
+Stable tag: 3.0.6
 
 Posts a Twitter update when you update your WordPress blog or add a link, with your chosen URL shortening service.
 
@@ -64,6 +64,16 @@ Translating my plug-ins is always appreciated. Visit <a href="http://translate.j
 
 * Use apply_filters( 'wpt_tweet_sentence', $tweet, $post_ID ) to pass custom taxonomy Tweet formats - Pending WordPress support for taxonomy meta.
 * Add regex filter to detect URLs typed into Tweet fields for counting/shortening purposes. [todo]
+* 4.2 added compat function for mb_substr; drop mine when I drop support for 4.1
+
+= 3.0.7 =
+
+* Bug fix: Twitter Feed search broken.
+* Bug fix: Display issue with support form textarea.
+* Address issue with input sources that have double encoded entities.
+* Improved: Error messages with Twitter Feed issues.
+* Add option to hide header on Twitter feed widget.
+* Language Update: Portuguese (Brazil)
 
 = 3.0.6 =
 

@@ -3,7 +3,7 @@
  * Plugin Name: Media Library Categories
  * Plugin URI: http://wordpress.org/plugins/wp-media-library-categories/
  * Description: Adds the ability to use categories in the media library.
- * Version: 1.5.0
+ * Version: 1.5.1
  * Author: Jeffrey-WP
  * Author URI: http://codecanyon.net/user/jeffrey-wp/?ref=jeffrey-wp
  */
@@ -214,6 +214,9 @@ if ( is_admin() ) {
 			}
 
 			$value = ( $args['value']=='slug' ? $category->slug : $category->term_id );
+			if ( 0 == $args['selected'] && isset( $_GET['category_media'] ) && '' != $_GET['category_media'] ) {
+				$args['selected'] = $_GET['category_media'];
+			}
 
 			$output .= '<option class="level-' . $depth . '" value="' . $value . '"';
 			if ( $value === (string) $args['selected'] ) {
@@ -335,22 +338,22 @@ if ( is_admin() ) {
 
 		// remember pagenumber
 		$pagenum = isset( $_REQUEST['paged'] ) ? absint( $_REQUEST['paged'] ) : 0;
-		$sendback = add_query_arg( 'paged', $pagenum, $sendback );
+		$sendback = esc_url( add_query_arg( 'paged', $pagenum, $sendback ) );
 
 		// remember orderby
 		if ( isset( $_REQUEST['orderby'] ) ) {
 			$sOrderby = $_REQUEST['orderby'];
-			$sendback = add_query_arg( 'orderby', $sOrderby, $sendback );
+			$sendback = esc_url( add_query_arg( 'orderby', $sOrderby, $sendback ) );
 		}
 		// remember order
 		if ( isset( $_REQUEST['order'] ) ) {
 			$sOrder = $_REQUEST['order'];
-			$sendback = add_query_arg( 'order', $sOrder, $sendback );
+			$sendback = esc_url( add_query_arg( 'order', $sOrder, $sendback ) );
 		}
 		// remember author
 		if ( isset( $_REQUEST['author'] ) ) {
 			$sOrderby = $_REQUEST['author'];
-			$sendback = add_query_arg( 'author', $sOrderby, $sendback );
+			$sendback = esc_url( add_query_arg( 'author', $sOrderby, $sendback ) );
 		}
 
 		foreach( $post_ids as $post_id ) {
@@ -525,9 +528,9 @@ if ( is_admin() ) {
 			echo '/* ]]> */';
 			echo '</script>';
 
-			wp_enqueue_script( 'wpmediacategory-media-views', plugins_url( 'js/wpmediacategory-media-views.min.js', __FILE__ ), array( 'media-views' ), '1.5.0', true );
+			wp_enqueue_script( 'wpmediacategory-media-views', plugins_url( 'js/wpmediacategory-media-views.min.js', __FILE__ ), array( 'media-views' ), '1.5.1', true );
 		}
-		wp_enqueue_style( 'wpmediacategory', plugins_url( 'css/wpmediacategory.min.css', __FILE__ ), array(), '1.5.0' );
+		wp_enqueue_style( 'wpmediacategory', plugins_url( 'css/wpmediacategory.min.css', __FILE__ ), array(), '1.5.1' );
 	}
 	add_action( 'admin_enqueue_scripts', 'wpmediacategory_enqueue_media_action' );
 

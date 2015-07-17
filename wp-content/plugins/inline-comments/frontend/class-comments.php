@@ -69,7 +69,7 @@ class INCOM_Comments extends INCOM_Frontend {
 	 * Generate comments form
 	 */
 	function generateCommentsAndForm() {
-		echo '<div id="comments-and-form" style="display:none">';
+		echo '<div id="comments-and-form" class="comments-and-form" style="display:none">';
 
 		$this->loadPluginInfoInvisible();
 
@@ -135,7 +135,7 @@ class INCOM_Comments extends INCOM_Frontend {
 		<?php
 			endif;
 
-			if ( (get_option("comment_permalink") != "1") ) {
+			if ( (get_option(INCOM_OPTION_KEY."_comment_permalink") == "1") ) {
 				echo apply_filters( 'incom_comment_permalink', $this->loadCommentPermalink( $comment->comment_ID ) );
 			}
 		?>
@@ -303,7 +303,7 @@ class INCOM_Comments extends INCOM_Frontend {
 			return get_option( 'incom_content_comments_before' );
 		}
 	}
-	
+
 	/**
 	 * Customise comment form
 	 */

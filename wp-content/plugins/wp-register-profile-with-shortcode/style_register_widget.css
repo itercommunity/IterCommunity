@@ -1,0 +1,149 @@
+.reg_error {
+    background-color: #FFEBE8;
+    border:1ps solid #FF0000;
+    color: #FF0000;
+    float: left;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-weight: 500;
+    padding: 6px;
+    width: 97%;
+	clear:both !important;
+}
+
+.reg_success {
+    background-color: #FFEBE8;
+    border: medium none #FF0000;
+    color: #FF0000;
+    float: left;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-weight: 500;
+    padding: 6px;
+    width: 97%;
+	clear:both !important;
+}
+
+.success_msg_rp {
+    background-color: #EAFFF4;
+    border:1px solid #003300;
+    color: #000000; 
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-weight: 500;
+    padding: 6px;
+    width: 97%;
+	margin-top:10px;
+	border-radius: 5px;
+	clear:both !important;
+}
+
+
+.field_form_table td{
+padding:8px;
+}
+
+div#reg_forms{
+margin:1%;
+}  
+
+
+/* Makes reg_forms fields.Sets size and field alignment.*/
+div#reg_forms input[type=text],
+input[type=email],
+input[type=password],
+input[type=url],
+input[type=tel]
+ {
+width:100%;
+  padding: 0.4583em;
+ /* border-radius:5px;*/
+  border:1px solid #CCCCCC;
+  margin-top:5px;
+}
+div#reg_forms textarea{
+	width:100%;
+    border:1px solid #CCCCCC;
+	/*border-radius:5px */
+  }
+
+div#reg_forms select{
+	width:100%;
+     padding: 0.4583em;
+ /* border-radius:5px;*/
+  border:1px solid #CCCCCC;
+  margin-top:5px;
+  }
+  
+div#reg_forms div{
+  padding:10px 0;
+}
+ 
+div#reg_forms input[type=text]:focus,
+input[type=email]:focus,
+input[type=password]:focus,
+input[type=url]:focus,
+input[type=tel]:focus,
+textarea:focus {
+  border-color: #999999; 
+}
+
+#reg_forms label{
+margin-left:0;
+}
+
+/* Sets form button size*/
+div#reg_forms input[type=submit]{
+width: auto;
+/*border-radius:5px;*/
+margin-right:1%
+}
+
+/* By using @ media form can have different layout for screen, mobile phone, tablet.*/
+
+/* Sets the form layout for mobile phone, tablet*/
+@media screen and (max-device-width: 600px) {
+
+div#reg_forms{
+margin:1%;
+}  
+
+/* Makes reg_forms fields.Sets size and field alignment.*/
+div#reg_forms input[type=text],
+input[type=email],
+input[type=password],
+input[type=url],
+input[type=tel]
+ {
+width:100%;
+  padding: 0.4583em;
+  /*border-radius:5px;*/
+  border:1px solid #7ac9b7;
+}
+div#reg_forms textarea{
+	width:100%;
+    border:1px solid #7ac9b7;
+	/*border-radius:5px */
+  }
+
+
+div#reg_forms div{
+  padding:10px 0;
+}
+ 
+div#reg_forms input[type=text]:focus,
+input[type=email]:focus,
+input[type=password]:focus,
+input[type=url]:focus,
+input[type=tel]:focus,
+textarea:focus {
+
+  border-color: #4697e4;
+}
+
+
+div#reg_forms input[type=submit]{
+width:160px;
+padding:20px 2px;
+/*border-radius:5px;*/
+border:2px solid  #4697e4;
+margin-right:10%
+}
+}

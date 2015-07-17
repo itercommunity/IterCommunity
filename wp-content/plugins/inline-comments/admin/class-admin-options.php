@@ -37,7 +37,6 @@ class INCOM_Admin_Options {
 	function register_incom_settings() {
 		$arr = array(
 			// Basics
-			'select_comment_type',
 			'multiselector',
 			INCOM_OPTION_KEY.'_support_for_ajaxify_comments',
 			INCOM_OPTION_KEY.'_reply',
@@ -57,10 +56,10 @@ class INCOM_Admin_Options {
 			INCOM_OPTION_KEY.'_content_comments_before',
 			'select_bubble_fadein',
 			'select_bubble_fadeout',
-			'comment_permalink',
 			'cancel_x',
 			'cancel_link',
 			INCOM_OPTION_KEY.'_field_url',
+			INCOM_OPTION_KEY.'_comment_permalink',
 			INCOM_OPTION_KEY.'_references',
 			INCOM_OPTION_KEY.'_bubble_static_always',
 		);
@@ -94,17 +93,6 @@ class INCOM_Admin_Options {
 
 				    <table class="form-table">
 					    <tbody>
-					        <tr valign="top">
-					        	<th scope="row"><?php esc_html_e( 'Comment System', INCOM_TD ); ?></th>
-						        <td>
-									<select class="select" typle="select" name="select_comment_type">
-										<option value="wp"<?php if (get_option('select_comment_type') === 'wp') { echo ' selected="selected"'; } ?>><?php esc_html_e( 'WordPress Comments', INCOM_TD ); ?></option>
-									</select>
-									<span><br>
-										<span style="color:#f60;">Notice:</span> Disqus integration is no longer supported, but you can still use the previous versions 1.2 or below from <a href="https://wordpress.org/plugins/inline-comments/developers/" target="_blank" title="Inline Comments for Developers">here</a>. This update makes Inline Comments even more lightweight and allows to simplify this options page.</span>
-									</span>
-						        </td>
-					        </tr>
 					        <tr valign="top">
 					        	<th scope="row"><?php esc_html_e( 'Selectors', INCOM_TD ); ?></th>
 					        	<td>
@@ -141,12 +129,12 @@ class INCOM_Admin_Options {
 					        	<th scope="row"><?php esc_html_e( '"Slide Site" Selector', INCOM_TD ); ?></th>
 					        	<td>
 					        		<?php 
-					        			$arr_selectors = array( ".site-main", ".site-inner", ".site" );
+					        			$arr_selectors = array( ".site-main", ".site-inner", ".site", "#page", "html" );
 					        			$selectors = implode( '<br>' , $arr_selectors );
 					        		?>
 					        		<input type="text" name="moveselector" placeholder="body" value="<?php echo get_option('moveselector'); ?>" />
 					        			<br>
-					        			<span><?php esc_html_e( 'This selector defines which content should slide left/right when the user clicks on a bubble. This setting depends on your theme\'s structure.', INCOM_TD ); ?> <?php esc_html_e( 'Default is', INCOM_TD ); ?> <i>body</i>.
+					        			<span><?php esc_html_e( 'This selector defines which content should slide left/right when the user clicks on a bubble. This setting depends on your theme\'s structure.', INCOM_TD ); ?> <?php esc_html_e( 'Default is', INCOM_TD ); ?> <i>html</i>.
 					        				<br><br><?php esc_html_e( 'You might try one of these selectors:', INCOM_TD ); ?>
 					        				<br><span class="italic"><?php echo $selectors; ?></span>
 					        			</span>
@@ -205,8 +193,7 @@ class INCOM_Admin_Options {
 					        <tr valign="top">
 					        	<th scope="row"><?php esc_html_e( 'Background Colour', INCOM_TD ); ?> <span class="description thin"><br><?php esc_html_e( 'for comment threads', INCOM_TD ); ?></span></th>
 					        	<td>
-					        		<input id="incom_picker_input_bgcolor" class="picker-input" type="text" name="set_bgcolour" placeholder="#ffffff" value="<?php if (get_option("set_bgcolour") == "") { echo "#ffffff"; } else { echo get_option("set_bgcolour"); } ?>" />
-					        		<div id="incom_picker_bgcolor" class="picker-style"></div>
+					        		<input id="incom_picker_input_bgcolor" class="incom_picker_bgcolor picker-input" type="text" name="set_bgcolour" data-default-color="#ffffff" value="<?php if (get_option("set_bgcolour") == "") { echo "#ffffff"; } else { echo get_option("set_bgcolour"); } ?>" />
 					        	</td>
 					        </tr>
 					        <tr valign="top">
@@ -263,12 +250,6 @@ class INCOM_Admin_Options {
 						        </td>
 					        </tr>
 					        <tr valign="top">
-					        	<th scope="row"><?php esc_html_e( 'Remove Permalinks', INCOM_TD ); ?></th>
-						        <td>
-									<input name="comment_permalink" type="checkbox" value="1" <?php checked( '1', get_option( 'comment_permalink' ) ); ?> /><span><?php esc_html_e( 'If checked, the permalink icon next to each comment will not be displayed.', INCOM_TD ); ?></span>
-						        </td>
-					        </tr>
-					        <tr valign="top">
 					        	<th scope="row"><?php esc_html_e( 'Remove Field "Website"', INCOM_TD ); ?></th>
 						        <td>
 									<input name="<?php echo INCOM_OPTION_KEY; ?>_field_url" type="checkbox" value="1" <?php checked( '1', get_option( INCOM_OPTION_KEY.'_field_url' ) ); ?> /><span><?php esc_html_e( 'If checked, users cannot submit an URL/Website when they comment inline.', INCOM_TD ); ?></span>
@@ -278,6 +259,12 @@ class INCOM_Admin_Options {
 					        	<th scope="row"><?php esc_html_e( 'Remove Link "Cancel"', INCOM_TD ); ?></th>
 						        <td>
 									<input name="cancel_link" type="checkbox" value="1" <?php checked( '1', get_option( 'cancel_link' ) ); ?> /><span><?php esc_html_e( 'If checked, the "cancel" link at the left bottom of the comments wrapper will not be displayed.', INCOM_TD ); ?></span>
+						        </td>
+					        </tr>
+					        <tr valign="top">
+					        	<th scope="row"><?php esc_html_e( 'Display Permalinks', INCOM_TD ); ?> <span class="newred"><?php esc_html_e( 'Updated', INCOM_TD ); ?></th>
+						        <td>
+									<input name="<?php echo INCOM_OPTION_KEY; ?>_comment_permalink" type="checkbox" value="1" <?php checked( '1', get_option( INCOM_OPTION_KEY.'_comment_permalink' ) ); ?> /><span><?php esc_html_e( 'If checked, a permalink icon will be displayed next to each comment.', INCOM_TD ); ?></span>
 						        </td>
 					        </tr>
 					        <tr valign="top">
@@ -314,7 +301,7 @@ class INCOM_Admin_Options {
 
 		    <table class="form-table">
 		        <tr valign="top">
-		        <th scope="row" style="width:100px;"><a href="http://kevinw.de/ic" target="_blank"><img src="http://www.gravatar.com/avatar/9d876cfd1fed468f71c84d26ca0e9e33?d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536&s=100" style="-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;"></a></th>
+		        <th scope="row" style="width:100px;"><a href="http://kevinw.de/ic" target="_blank"><img src="https://www.gravatar.com/avatar/9d876cfd1fed468f71c84d26ca0e9e33?d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536&s=100" style="-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;"></a></th>
 		        <td style="width:200px;">
 		        	<p><a href="http://kevinw.de/ic" target="_blank">Kevin Weber</a> &ndash; <?php esc_html_e( 'that\'s me.', INCOM_TD ); ?><br>
 		        	<?php esc_html_e( 'I\'m the developer of this plugin. Love it!', INCOM_TD ); ?></p></td>
@@ -348,12 +335,16 @@ class INCOM_Admin_Options {
 	}
 
 	function incom_admin_js() {
-	    wp_enqueue_script( 'incom_admin_js', plugins_url( '../js/min/admin-ck.js' , __FILE__ ), array( 'jquery', 'jquery-ui-tabs', 'farbtastic' ) );
+		if ( defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ) {
+			wp_enqueue_script( 'incom_admin_js', plugins_url( '../js/admin.js' , __FILE__ ), array( 'jquery', 'jquery-ui-tabs', 'wp-color-picker' ), INCOM_VERSION );
+		} else {
+			wp_enqueue_script( 'incom_admin_js', plugins_url( '../js/min/admin.min.js' , __FILE__ ), array( 'jquery', 'jquery-ui-tabs', 'wp-color-picker', INCOM_VERSION ) );
+		}
 	}
 
 	function incom_admin_css() {
 		wp_enqueue_style( 'incom_admin_css', plugins_url('../css/min/admin.css', __FILE__) );
-		wp_enqueue_style( 'farbtastic' );	// Required for colour picker
+		wp_enqueue_style( 'wp-color-picker' );	// Required for colour picker
 	}
 
 }

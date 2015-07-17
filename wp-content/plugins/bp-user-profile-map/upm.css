@@ -1,0 +1,41 @@
+/* Generic map styles */
+div.profile .map-display,
+div#item-header-content div.map-display {
+ float:right;
+ }
+
+div.profile-map .profile-loop-field-Location {float: none;}
+		
+div.profile,
+div.profile  div.bp-widget {
+ overflow:hidden;
+ }
+
+div#item-header div.map-display {
+ margin-bottom:20px;
+ }
+
+/* display map in /user-name/profile page public profile */
+
+div.profile .map-display {
+ margin-left:20px;
+ }
+
+/* display in header before header meta content */
+
+div#item-header-content div.map-display {
+ margin:20px 0 20px 20px;
+ }
+/* display in header meta content */
+
+div#latest-update,
+div#item-buttons {float:left;}
+
+div#item-meta div.map-display {
+ margin:0 0 20px 20px;
+ }
+		
+/* Widget map */
+.widget_bp_upm_widget #map_canvas {
+	margin: 0 auto;
+	}
